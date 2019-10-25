@@ -1,6 +1,7 @@
 # stm8_minibadges
-Repository of mini badges using the stm8s001j3
-This repo contains all the source code and eagle files for the mini badges I've designed using the STM8S001J3 microprocessor. I've loved this little cheap as it's cheaper than an ATTiny and extremely powerful. The package design leave a bit to be desired as it wastes one pin for a required cap and the pin 1 marking is horrible but for $.23 you can't complain much.
+Repository of mini badges using the stm8s001j3.
+
+This repo contains all the source code and eagle files for the mini badges I've designed using the STM8S001J3 microprocessor. I've loved this little chip as it's cheaper than an ATTiny and extremely versatile. The package design leaves a bit to be desired as it wastes one pin for a required cap and the pin 1 marking is horrible but for $.23 you can't complain much.
 
 In all my stm8 projects I do bare metal programming and utilize no libraries (I'm usually wanting to make the most of that 8K flash)
 
@@ -27,3 +28,5 @@ Due to its file extension (or lack thereof), "main.ihx" is considered as INTEL H
 4456 bytes at 0x8000... OK
 Bytes written: 4456
 ```
+
+I apologize for the lack of code comments but don’t really care enough to do something about it :/
