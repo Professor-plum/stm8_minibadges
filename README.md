@@ -30,3 +30,5 @@ Bytes written: 4456
 ```
 
 I apologize for the lack of code comments but don’t really care enough to do something about it :/
+
+The official documentation for this chip can be found at https://www.st.com/resource/en/datasheet/stm8s001j3.pdf
