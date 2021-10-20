@@ -12,4 +12,4 @@
 
 Same hardware as the Metroid Mini Badge
 
-The sketch is a tribute to the original Atari Pitfall! programers who wrote the whole game in 4K. (This minibaddge take more than that just for this short animation)
+The sketch is a tribute to the original Atari Pitfall! programers who wrote the whole game in 4K. (This minibadge takes more than that just for this short animation)
