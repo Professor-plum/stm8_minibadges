@@ -1,0 +1,11 @@
+-muwx
+-i main.ihx
+-b HOME = 0x8000
+-b DATA = 0x0001
+-k /opt/homebrew/bin/../share/sdcc/lib/stm8
+-k /opt/homebrew/Cellar/sdcc/4.3.0/share/sdcc/lib/stm8
+-l stm8
+-l stm8
+main.rel
+
+-e
