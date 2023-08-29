@@ -3,9 +3,19 @@ Repository of mini badges using the stm8s001j3.
 
 ![Metroid](/Metroid/metroid.gif)
 ![Pitfall](/Pitfall/pitfall.gif)
+![Doom](/Doom/doom.gif)
 ![Phoenix](/Phoenix/s2.gif)
 
 This repo contains all the source code and eagle files for the mini badges I've designed using the STM8S001J3 microprocessor. I've loved this little chip as it's cheaper than an ATTiny and extremely versatile. The package design leaves a bit to be desired as it wastes one pin for a required cap and the pin 1 marking is horrible but for $.23 you can't complain much.
+
+## Assembly
+
+I'd recommend soldering the LCD down first, followed by the STM8 chip (note the orientation) then the resistor and capacitor. Finally, solder on the pin header legs once all the surface mount components are down. 
+
+![Layout](/layout.JPG)
+
+
+## Flashing
 
 In all my stm8 projects I do bare metal programming and utilize no libraries (I'm usually wanting to make the most of that 8K flash)
 
@@ -23,7 +33,7 @@ To flash the badge there are only three that need to be connected from the ST-Li
 * GND to ether GND
 * SWIM to NC12 (4th pin from the right on the bottom row)
 
-Usually the process for compiling and flashing is the same for all projects. That is:
+Usually, the process for compiling and flashing is the same for all projects. That is:
 
 ```bash
 >sdcc -lstm8 -mstm8 --out-fmt-ihx main.c
@@ -40,7 +50,8 @@ Due to its file extension (or lack thereof), "main.ihx" is considered as INTEL H
 Bytes written: 4456
 ```
 
+I apologize for the lack of code comments but I don’t really care enough to do something about it :/
 
-I apologize for the lack of code comments but don’t really care enough to do something about it :/
+The colors may be inverted depending on the TFT LCD type you have. The simple fix is to locate the line `ST7735_Write(ST7735_INVOFF, CMD);` in the main.c file and change it to `ST7735_Write(ST7735_INVON, CMD);` or vice versa. Then recompile and reflash.
 
 The official documentation for this chip can be found at https://www.st.com/resource/en/datasheet/stm8s001j3.pdf
