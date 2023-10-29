@@ -206,7 +206,7 @@ _drawFace:
 	push	#0x00
 	ldw	x, (0x07, sp)
 	call	__divsint
-	incw	x
+	addw	x, #0x0003
 	pushw	x
 	ldw	x, #0x001a
 	call	__mulint
@@ -217,7 +217,7 @@ _drawFace:
 	ldw	x, (0x07, sp)
 	cpw	x, #0x001a
 	jrsge	00108$
-;	main.c: 52: int idx = face[(1+(y/3))*26+i];
+;	main.c: 52: int idx = face[(3+(y/3))*26+i];
 	ldw	x, (0x01, sp)
 	addw	x, (0x07, sp)
 	addw	x, (0x03, sp)
@@ -310,9 +310,9 @@ _main:
 	clrw	y
 	clrw	x
 00114$:
-	cpw	y, #0x1200
+	cpw	y, #0x0900
 	ld	a, xl
-	sbc	a, #0x7a
+	sbc	a, #0x3d
 	ld	a, xh
 	sbc	a, #0x00
 	jrnc	00107$
@@ -323,7 +323,7 @@ _main:
 	jrne	00114$
 	incw	x
 	jra	00114$
-;	main.c: 78: delay_ms(4000);
+;	main.c: 78: delay_ms(2000); //000 + (rand() % 2000));
 00107$:
 ;	main.c: 79: drawFace(frames[rand()%7]);
 	call	_rand
@@ -341,9 +341,9 @@ _main:
 	clrw	y
 	clrw	x
 00117$:
-	cpw	y, #0x8480
+	cpw	y, #0xe360
 	ld	a, xl
-	sbc	a, #0x1e
+	sbc	a, #0x16
 	ld	a, xh
 	sbc	a, #0x00
 	jrnc	00102$
@@ -354,7 +354,7 @@ _main:
 	jrne	00117$
 	incw	x
 	jra	00117$
-;	main.c: 80: delay_ms(1000);
+;	main.c: 80: delay_ms(750);
 ;	main.c: 83: }
 	addw	sp, #16
 	ret
@@ -763,9 +763,9 @@ _ST7735_Init:
 	push	#0x01
 	ld	a, #0x0e
 	call	_ST7735_Write
-;	main.c: 207: ST7735_Write(ST7735_INVON, CMD);
+;	main.c: 207: ST7735_Write(ST7735_INVOFF, CMD);
 	push	#0x00
-	ld	a, #0x21
+	ld	a, #0x20
 	call	_ST7735_Write
 ;	main.c: 208: ST7735_Write(ST7735_MADCTL, CMD);
 	push	#0x00

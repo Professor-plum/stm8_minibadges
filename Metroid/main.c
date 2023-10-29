@@ -25,7 +25,7 @@ void ST7735_Fill(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint16_t color);
 
 static inline void delay_ms(uint16_t ms) {
     uint32_t i;
-    for (i = 0; i < ((F_CPU / 18000UL) * ms); i++)
+    for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
         __asm__("nop");
 }
 
@@ -46,7 +46,7 @@ void init_clock(void) {
 void main(void)
 {
 
-   delay_ms(1000);
+   delay_ms(300);
 
    init_clock();
    ST7735_Init();
@@ -75,7 +75,7 @@ void main(void)
        
        frame++;
        
-       delay_ms(100);
+       delay_ms(8);
 
    }
 
@@ -201,7 +201,7 @@ void ST7735_Init() {
     ST7735_Write(0xEE, DAT);
     ST7735_Write(ST7735_VMCTR1, CMD);
     ST7735_Write(0x0E, DAT);
-    ST7735_Write(ST7735_INVOFF, CMD);
+    ST7735_Write(ST7735_INVON, CMD);
     ST7735_Write(ST7735_MADCTL, CMD);
     ST7735_Write(0xC8, DAT);
     ST7735_Write(ST7735_COLMOD, CMD);

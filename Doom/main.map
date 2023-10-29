@@ -24,7 +24,7 @@ Area                                    Addr        Size        Decimal Bytes (A
      00000005  s_SSEG                          
      00000007  l_HOME                          
      00000023  l_GSINIT                        
-     0000069C  l_CODE                          
+     0000069E  l_CODE                          
      000018F4  l_CONST                         
      00008000  s_HOME                          
      00008007  s_GSINIT                        
@@ -110,29 +110,29 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CODE                                00009925    0000069C =        1692. bytes (REL,CON)
+CODE                                00009925    0000069E =        1694. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
      0000995D  _clock                             main
      00009973  _init_clock                        main
      00009980  _drawFace                          main
-     000099E3  _main                              main
-     00009A77  _SPI_init                          main
-     00009A94  _SPI_write                         main
-     00009A9D  _ST7735_Write                      main
-     00009AC0  _ST7735_Write16                    main
-     00009ADE  _ST7735_SetAddrWindow              main
-     00009B4C  _ST7735_Init                       main
-     00009E73  _ST7735_Clear                      main
-     00009EA5  ___muluint2ulong                   
-     00009EAB  ___mulsint2slong                   
-     00009EFC  _rand                              rand
-     00009F66  _srand                             rand
-     00009F73  __mulint                           
-     00009F90  ___sdcc_external_startup           _startup
-     00009F92  __modsint                          
-     00009FAA  __divsint                          
+     000099E5  _main                              main
+     00009A79  _SPI_init                          main
+     00009A96  _SPI_write                         main
+     00009A9F  _ST7735_Write                      main
+     00009AC2  _ST7735_Write16                    main
+     00009AE0  _ST7735_SetAddrWindow              main
+     00009B4E  _ST7735_Init                       main
+     00009E75  _ST7735_Clear                      main
+     00009EA7  ___muluint2ulong                   
+     00009EAD  ___mulsint2slong                   
+     00009EFE  _rand                              rand
+     00009F68  _srand                             rand
+     00009F75  __mulint                           
+     00009F92  ___sdcc_external_startup           _startup
+     00009F94  __modsint                          
+     00009FAC  __divsint                          
 
 ASxxxx Linker V03.00/V05.40 + sdld,  page 10.
 

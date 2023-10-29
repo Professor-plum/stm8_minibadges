@@ -100,7 +100,7 @@
                                     100 	.area HOME
                                     101 	.area HOME
       000004                        102 __sdcc_program_startup:
-      000004 CCr00rBE         [ 2]  103 	jp	_main
+      000004 CCr00rC0         [ 2]  103 	jp	_main
                                     104 ;	return from main will return to caller
                                     105 ;--------------------------------------------------------
                                     106 ; code
@@ -193,891 +193,891 @@
       000061 4B 4E            [ 1]  193 	push	#0x4e
       000063 4B 02            [ 1]  194 	push	#0x02
       000065 A6 29            [ 1]  195 	ld	a, #0x29
-      000067 CDr01rB9         [ 4]  196 	call	_ST7735_SetAddrWindow
+      000067 CDr01rBB         [ 4]  196 	call	_ST7735_SetAddrWindow
                                     197 ;	main.c: 49: for (int y=0; y<80; ++y) {
       00006A 5F               [ 1]  198 	clrw	x
       00006B 1F 05            [ 2]  199 	ldw	(0x05, sp), x
       00006D                        200 00107$:
       00006D 1E 05            [ 2]  201 	ldw	x, (0x05, sp)
       00006F A3 00 50         [ 2]  202 	cpw	x, #0x0050
-      000072 2E 47            [ 1]  203 	jrsge	00109$
+      000072 2E 49            [ 1]  203 	jrsge	00109$
                                     204 ;	main.c: 51: for (int i=0; i<26; ++i) {
       000074 4B 03            [ 1]  205 	push	#0x03
       000076 4B 00            [ 1]  206 	push	#0x00
       000078 1E 07            [ 2]  207 	ldw	x, (0x07, sp)
       00007A CDr00r00         [ 4]  208 	call	__divsint
-      00007D 5C               [ 1]  209 	incw	x
-      00007E 89               [ 2]  210 	pushw	x
-      00007F AE 00 1A         [ 2]  211 	ldw	x, #0x001a
-      000082 CDr00r00         [ 4]  212 	call	__mulint
-      000085 1F 01            [ 2]  213 	ldw	(0x01, sp), x
-      000087 5F               [ 1]  214 	clrw	x
-      000088 1F 07            [ 2]  215 	ldw	(0x07, sp), x
-      00008A                        216 00104$:
-      00008A 1E 07            [ 2]  217 	ldw	x, (0x07, sp)
-      00008C A3 00 1A         [ 2]  218 	cpw	x, #0x001a
-      00008F 2E 23            [ 1]  219 	jrsge	00108$
-                                    220 ;	main.c: 52: int idx = face[(1+(y/3))*26+i];
-      000091 1E 01            [ 2]  221 	ldw	x, (0x01, sp)
-      000093 72 FB 07         [ 2]  222 	addw	x, (0x07, sp)
-      000096 72 FB 03         [ 2]  223 	addw	x, (0x03, sp)
-      000099 F6               [ 1]  224 	ld	a, (x)
-      00009A 5F               [ 1]  225 	clrw	x
+      00007D 1C 00 03         [ 2]  209 	addw	x, #0x0003
+      000080 89               [ 2]  210 	pushw	x
+      000081 AE 00 1A         [ 2]  211 	ldw	x, #0x001a
+      000084 CDr00r00         [ 4]  212 	call	__mulint
+      000087 1F 01            [ 2]  213 	ldw	(0x01, sp), x
+      000089 5F               [ 1]  214 	clrw	x
+      00008A 1F 07            [ 2]  215 	ldw	(0x07, sp), x
+      00008C                        216 00104$:
+      00008C 1E 07            [ 2]  217 	ldw	x, (0x07, sp)
+      00008E A3 00 1A         [ 2]  218 	cpw	x, #0x001a
+      000091 2E 23            [ 1]  219 	jrsge	00108$
+                                    220 ;	main.c: 52: int idx = face[(3+(y/3))*26+i];
+      000093 1E 01            [ 2]  221 	ldw	x, (0x01, sp)
+      000095 72 FB 07         [ 2]  222 	addw	x, (0x07, sp)
+      000098 72 FB 03         [ 2]  223 	addw	x, (0x03, sp)
+      00009B F6               [ 1]  224 	ld	a, (x)
+      00009C 5F               [ 1]  225 	clrw	x
                                     226 ;	main.c: 53: uint16_t c = pallet[idx];
-      00009B 97               [ 1]  227 	ld	xl, a
-      00009C 58               [ 2]  228 	sllw	x
-      00009D DEu00u00         [ 2]  229 	ldw	x, (_pallet+0, x)
+      00009D 97               [ 1]  227 	ld	xl, a
+      00009E 58               [ 2]  228 	sllw	x
+      00009F DEu00u00         [ 2]  229 	ldw	x, (_pallet+0, x)
                                     230 ;	main.c: 54: ST7735_Write16(c);
-      0000A0 89               [ 2]  231 	pushw	x
-      0000A1 CDr01r9B         [ 4]  232 	call	_ST7735_Write16
-      0000A4 85               [ 2]  233 	popw	x
+      0000A2 89               [ 2]  231 	pushw	x
+      0000A3 CDr01r9D         [ 4]  232 	call	_ST7735_Write16
+      0000A6 85               [ 2]  233 	popw	x
                                     234 ;	main.c: 55: ST7735_Write16(c);
-      0000A5 89               [ 2]  235 	pushw	x
-      0000A6 CDr01r9B         [ 4]  236 	call	_ST7735_Write16
-      0000A9 85               [ 2]  237 	popw	x
+      0000A7 89               [ 2]  235 	pushw	x
+      0000A8 CDr01r9D         [ 4]  236 	call	_ST7735_Write16
+      0000AB 85               [ 2]  237 	popw	x
                                     238 ;	main.c: 56: ST7735_Write16(c);
-      0000AA CDr01r9B         [ 4]  239 	call	_ST7735_Write16
+      0000AC CDr01r9D         [ 4]  239 	call	_ST7735_Write16
                                     240 ;	main.c: 51: for (int i=0; i<26; ++i) {
-      0000AD 1E 07            [ 2]  241 	ldw	x, (0x07, sp)
-      0000AF 5C               [ 1]  242 	incw	x
-      0000B0 1F 07            [ 2]  243 	ldw	(0x07, sp), x
-      0000B2 20 D6            [ 2]  244 	jra	00104$
-      0000B4                        245 00108$:
+      0000AF 1E 07            [ 2]  241 	ldw	x, (0x07, sp)
+      0000B1 5C               [ 1]  242 	incw	x
+      0000B2 1F 07            [ 2]  243 	ldw	(0x07, sp), x
+      0000B4 20 D6            [ 2]  244 	jra	00104$
+      0000B6                        245 00108$:
                                     246 ;	main.c: 49: for (int y=0; y<80; ++y) {
-      0000B4 1E 05            [ 2]  247 	ldw	x, (0x05, sp)
-      0000B6 5C               [ 1]  248 	incw	x
-      0000B7 1F 05            [ 2]  249 	ldw	(0x05, sp), x
-      0000B9 20 B2            [ 2]  250 	jra	00107$
-      0000BB                        251 00109$:
+      0000B6 1E 05            [ 2]  247 	ldw	x, (0x05, sp)
+      0000B8 5C               [ 1]  248 	incw	x
+      0000B9 1F 05            [ 2]  249 	ldw	(0x05, sp), x
+      0000BB 20 B0            [ 2]  250 	jra	00107$
+      0000BD                        251 00109$:
                                     252 ;	main.c: 60: }
-      0000BB 5B 08            [ 2]  253 	addw	sp, #8
-      0000BD 81               [ 4]  254 	ret
+      0000BD 5B 08            [ 2]  253 	addw	sp, #8
+      0000BF 81               [ 4]  254 	ret
                                     255 ;	main.c: 62: void main(void)
                                     256 ;	-----------------------------------------
                                     257 ;	 function main
                                     258 ;	-----------------------------------------
-      0000BE                        259 _main:
-      0000BE 52 10            [ 2]  260 	sub	sp, #16
+      0000C0                        259 _main:
+      0000C0 52 10            [ 2]  260 	sub	sp, #16
                                     261 ;	main.c: 64: const uint8_t* frames[7] = {doom1_raw, doom3_raw, doom4_raw, doom5_raw, doom6_raw, doom7_raw, doom8_raw};
-      0000C0 AEr00r82         [ 2]  262 	ldw	x, #(_doom1_raw+0)
-      0000C3 1F 01            [ 2]  263 	ldw	(0x01, sp), x
-      0000C5 AEr06r98         [ 2]  264 	ldw	x, #(_doom3_raw+0)
-      0000C8 1F 03            [ 2]  265 	ldw	(0x03, sp), x
-      0000CA AEr09rA3         [ 2]  266 	ldw	x, #(_doom4_raw+0)
-      0000CD 1F 05            [ 2]  267 	ldw	(0x05, sp), x
-      0000CF AEr0CrAE         [ 2]  268 	ldw	x, #(_doom5_raw+0)
-      0000D2 1F 07            [ 2]  269 	ldw	(0x07, sp), x
-      0000D4 AEr0FrD3         [ 2]  270 	ldw	x, #(_doom6_raw+0)
-      0000D7 1F 09            [ 2]  271 	ldw	(0x09, sp), x
-      0000D9 AEr12rDE         [ 2]  272 	ldw	x, #(_doom7_raw+0)
-      0000DC 1F 0B            [ 2]  273 	ldw	(0x0b, sp), x
-      0000DE AEr15rE9         [ 2]  274 	ldw	x, #(_doom8_raw+0)
-      0000E1 1F 0D            [ 2]  275 	ldw	(0x0d, sp), x
+      0000C2 AEr00r82         [ 2]  262 	ldw	x, #(_doom1_raw+0)
+      0000C5 1F 01            [ 2]  263 	ldw	(0x01, sp), x
+      0000C7 AEr06r98         [ 2]  264 	ldw	x, #(_doom3_raw+0)
+      0000CA 1F 03            [ 2]  265 	ldw	(0x03, sp), x
+      0000CC AEr09rA3         [ 2]  266 	ldw	x, #(_doom4_raw+0)
+      0000CF 1F 05            [ 2]  267 	ldw	(0x05, sp), x
+      0000D1 AEr0CrAE         [ 2]  268 	ldw	x, #(_doom5_raw+0)
+      0000D4 1F 07            [ 2]  269 	ldw	(0x07, sp), x
+      0000D6 AEr0FrD3         [ 2]  270 	ldw	x, #(_doom6_raw+0)
+      0000D9 1F 09            [ 2]  271 	ldw	(0x09, sp), x
+      0000DB AEr12rDE         [ 2]  272 	ldw	x, #(_doom7_raw+0)
+      0000DE 1F 0B            [ 2]  273 	ldw	(0x0b, sp), x
+      0000E0 AEr15rE9         [ 2]  274 	ldw	x, #(_doom8_raw+0)
+      0000E3 1F 0D            [ 2]  275 	ldw	(0x0d, sp), x
                                     276 ;	main.c: 66: init_clock();
-      0000E3 CDr00r4E         [ 4]  277 	call	_init_clock
+      0000E5 CDr00r4E         [ 4]  277 	call	_init_clock
                                     278 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      0000E6 90 5F            [ 1]  279 	clrw	y
-      0000E8 5F               [ 1]  280 	clrw	x
-      0000E9                        281 00111$:
-      0000E9 90 A3 8D 80      [ 2]  282 	cpw	y, #0x8d80
-      0000ED 9F               [ 1]  283 	ld	a, xl
-      0000EE A2 5B            [ 1]  284 	sbc	a, #0x5b
-      0000F0 9E               [ 1]  285 	ld	a, xh
-      0000F1 A2 00            [ 1]  286 	sbc	a, #0x00
-      0000F3 24 08            [ 1]  287 	jrnc	00105$
+      0000E8 90 5F            [ 1]  279 	clrw	y
+      0000EA 5F               [ 1]  280 	clrw	x
+      0000EB                        281 00111$:
+      0000EB 90 A3 8D 80      [ 2]  282 	cpw	y, #0x8d80
+      0000EF 9F               [ 1]  283 	ld	a, xl
+      0000F0 A2 5B            [ 1]  284 	sbc	a, #0x5b
+      0000F2 9E               [ 1]  285 	ld	a, xh
+      0000F3 A2 00            [ 1]  286 	sbc	a, #0x00
+      0000F5 24 08            [ 1]  287 	jrnc	00105$
                                     288 ;	main.c: 28: __asm__("nop");
-      0000F5 9D               [ 1]  289 	nop
+      0000F7 9D               [ 1]  289 	nop
                                     290 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      0000F6 90 5C            [ 1]  291 	incw	y
-      0000F8 26 EF            [ 1]  292 	jrne	00111$
-      0000FA 5C               [ 1]  293 	incw	x
-      0000FB 20 EC            [ 2]  294 	jra	00111$
+      0000F8 90 5C            [ 1]  291 	incw	y
+      0000FA 26 EF            [ 1]  292 	jrne	00111$
+      0000FC 5C               [ 1]  293 	incw	x
+      0000FD 20 EC            [ 2]  294 	jra	00111$
                                     295 ;	main.c: 67: delay_ms(3000);
-      0000FD                        296 00105$:
+      0000FF                        296 00105$:
                                     297 ;	main.c: 68: ST7735_Init();
-      0000FD CDr02r27         [ 4]  298 	call	_ST7735_Init
+      0000FF CDr02r29         [ 4]  298 	call	_ST7735_Init
                                     299 ;	main.c: 70: __asm__ ("rim"); //enable interrupts
-      000100 9A               [ 1]  300 	rim
+      000102 9A               [ 1]  300 	rim
                                     301 ;	main.c: 73: ST7735_Clear(RGB(0,0,0));
-      000101 5F               [ 1]  302 	clrw	x
-      000102 CDr05r4E         [ 4]  303 	call	_ST7735_Clear
+      000103 5F               [ 1]  302 	clrw	x
+      000104 CDr05r50         [ 4]  303 	call	_ST7735_Clear
                                     304 ;	main.c: 75: while(1) {
-      000105                        305 00102$:
+      000107                        305 00102$:
                                     306 ;	main.c: 77: drawFace(doom2_raw);
-      000105 AEr03r8D         [ 2]  307 	ldw	x, #(_doom2_raw+0)
-      000108 CDr00r5B         [ 4]  308 	call	_drawFace
+      000107 AEr03r8D         [ 2]  307 	ldw	x, #(_doom2_raw+0)
+      00010A CDr00r5B         [ 4]  308 	call	_drawFace
                                     309 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      00010B 90 5F            [ 1]  310 	clrw	y
-      00010D 5F               [ 1]  311 	clrw	x
-      00010E                        312 00114$:
-      00010E 90 A3 12 00      [ 2]  313 	cpw	y, #0x1200
-      000112 9F               [ 1]  314 	ld	a, xl
-      000113 A2 7A            [ 1]  315 	sbc	a, #0x7a
-      000115 9E               [ 1]  316 	ld	a, xh
-      000116 A2 00            [ 1]  317 	sbc	a, #0x00
-      000118 24 08            [ 1]  318 	jrnc	00107$
+      00010D 90 5F            [ 1]  310 	clrw	y
+      00010F 5F               [ 1]  311 	clrw	x
+      000110                        312 00114$:
+      000110 90 A3 09 00      [ 2]  313 	cpw	y, #0x0900
+      000114 9F               [ 1]  314 	ld	a, xl
+      000115 A2 3D            [ 1]  315 	sbc	a, #0x3d
+      000117 9E               [ 1]  316 	ld	a, xh
+      000118 A2 00            [ 1]  317 	sbc	a, #0x00
+      00011A 24 08            [ 1]  318 	jrnc	00107$
                                     319 ;	main.c: 28: __asm__("nop");
-      00011A 9D               [ 1]  320 	nop
+      00011C 9D               [ 1]  320 	nop
                                     321 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      00011B 90 5C            [ 1]  322 	incw	y
-      00011D 26 EF            [ 1]  323 	jrne	00114$
-      00011F 5C               [ 1]  324 	incw	x
-      000120 20 EC            [ 2]  325 	jra	00114$
-                                    326 ;	main.c: 78: delay_ms(4000);
-      000122                        327 00107$:
+      00011D 90 5C            [ 1]  322 	incw	y
+      00011F 26 EF            [ 1]  323 	jrne	00114$
+      000121 5C               [ 1]  324 	incw	x
+      000122 20 EC            [ 2]  325 	jra	00114$
+                                    326 ;	main.c: 78: delay_ms(2000); //000 + (rand() % 2000));
+      000124                        327 00107$:
                                     328 ;	main.c: 79: drawFace(frames[rand()%7]);
-      000122 CDr00r00         [ 4]  329 	call	_rand
-      000125 4B 07            [ 1]  330 	push	#0x07
-      000127 4B 00            [ 1]  331 	push	#0x00
-      000129 CDr00r00         [ 4]  332 	call	__modsint
-      00012C 58               [ 2]  333 	sllw	x
-      00012D 1F 0F            [ 2]  334 	ldw	(0x0f, sp), x
-      00012F 96               [ 1]  335 	ldw	x, sp
-      000130 5C               [ 1]  336 	incw	x
-      000131 72 FB 0F         [ 2]  337 	addw	x, (0x0f, sp)
-      000134 FE               [ 2]  338 	ldw	x, (x)
-      000135 CDr00r5B         [ 4]  339 	call	_drawFace
+      000124 CDr00r00         [ 4]  329 	call	_rand
+      000127 4B 07            [ 1]  330 	push	#0x07
+      000129 4B 00            [ 1]  331 	push	#0x00
+      00012B CDr00r00         [ 4]  332 	call	__modsint
+      00012E 58               [ 2]  333 	sllw	x
+      00012F 1F 0F            [ 2]  334 	ldw	(0x0f, sp), x
+      000131 96               [ 1]  335 	ldw	x, sp
+      000132 5C               [ 1]  336 	incw	x
+      000133 72 FB 0F         [ 2]  337 	addw	x, (0x0f, sp)
+      000136 FE               [ 2]  338 	ldw	x, (x)
+      000137 CDr00r5B         [ 4]  339 	call	_drawFace
                                     340 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      000138 90 5F            [ 1]  341 	clrw	y
-      00013A 5F               [ 1]  342 	clrw	x
-      00013B                        343 00117$:
-      00013B 90 A3 84 80      [ 2]  344 	cpw	y, #0x8480
-      00013F 9F               [ 1]  345 	ld	a, xl
-      000140 A2 1E            [ 1]  346 	sbc	a, #0x1e
-      000142 9E               [ 1]  347 	ld	a, xh
-      000143 A2 00            [ 1]  348 	sbc	a, #0x00
-      000145 24 BE            [ 1]  349 	jrnc	00102$
+      00013A 90 5F            [ 1]  341 	clrw	y
+      00013C 5F               [ 1]  342 	clrw	x
+      00013D                        343 00117$:
+      00013D 90 A3 E3 60      [ 2]  344 	cpw	y, #0xe360
+      000141 9F               [ 1]  345 	ld	a, xl
+      000142 A2 16            [ 1]  346 	sbc	a, #0x16
+      000144 9E               [ 1]  347 	ld	a, xh
+      000145 A2 00            [ 1]  348 	sbc	a, #0x00
+      000147 24 BE            [ 1]  349 	jrnc	00102$
                                     350 ;	main.c: 28: __asm__("nop");
-      000147 9D               [ 1]  351 	nop
+      000149 9D               [ 1]  351 	nop
                                     352 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      000148 90 5C            [ 1]  353 	incw	y
-      00014A 26 EF            [ 1]  354 	jrne	00117$
-      00014C 5C               [ 1]  355 	incw	x
-      00014D 20 EC            [ 2]  356 	jra	00117$
-                                    357 ;	main.c: 80: delay_ms(1000);
+      00014A 90 5C            [ 1]  353 	incw	y
+      00014C 26 EF            [ 1]  354 	jrne	00117$
+      00014E 5C               [ 1]  355 	incw	x
+      00014F 20 EC            [ 2]  356 	jra	00117$
+                                    357 ;	main.c: 80: delay_ms(750);
                                     358 ;	main.c: 83: }
-      00014F 5B 10            [ 2]  359 	addw	sp, #16
-      000151 81               [ 4]  360 	ret
+      000151 5B 10            [ 2]  359 	addw	sp, #16
+      000153 81               [ 4]  360 	ret
                                     361 ;	main.c: 91: void SPI_init(void) {
                                     362 ;	-----------------------------------------
                                     363 ;	 function SPI_init
                                     364 ;	-----------------------------------------
-      000152                        365 _SPI_init:
+      000154                        365 _SPI_init:
                                     366 ;	main.c: 93: PC_DDR |= (1<<5) | (1<<6); // clock and MOSI
-      000152 C6 50 0C         [ 1]  367 	ld	a, 0x500c
-      000155 AA 60            [ 1]  368 	or	a, #0x60
-      000157 C7 50 0C         [ 1]  369 	ld	0x500c, a
+      000154 C6 50 0C         [ 1]  367 	ld	a, 0x500c
+      000157 AA 60            [ 1]  368 	or	a, #0x60
+      000159 C7 50 0C         [ 1]  369 	ld	0x500c, a
                                     370 ;	main.c: 94: PC_CR1 |= (1<<5) | (1<<6) | (1<<7);
-      00015A C6 50 0D         [ 1]  371 	ld	a, 0x500d
-      00015D AA E0            [ 1]  372 	or	a, #0xe0
-      00015F C7 50 0D         [ 1]  373 	ld	0x500d, a
+      00015C C6 50 0D         [ 1]  371 	ld	a, 0x500d
+      00015F AA E0            [ 1]  372 	or	a, #0xe0
+      000161 C7 50 0D         [ 1]  373 	ld	0x500d, a
                                     374 ;	main.c: 98: SPI_CR2 = SPI_CR2_SSM | SPI_CR2_SSI;
-      000162 35 03 52 01      [ 1]  375 	mov	0x5201+0, #0x03
+      000164 35 03 52 01      [ 1]  375 	mov	0x5201+0, #0x03
                                     376 ;	main.c: 99: SPI_CR1 = SPI_CR1_MSTR;// | SPI_CR1_BR(3);
-      000166 35 04 52 00      [ 1]  377 	mov	0x5200+0, #0x04
+      000168 35 04 52 00      [ 1]  377 	mov	0x5200+0, #0x04
                                     378 ;	main.c: 100: SPI_CR1 |= SPI_CR1_SPE;
-      00016A 72 1C 52 00      [ 1]  379 	bset	0x5200, #6
+      00016C 72 1C 52 00      [ 1]  379 	bset	0x5200, #6
                                     380 ;	main.c: 101: }
-      00016E 81               [ 4]  381 	ret
+      000170 81               [ 4]  381 	ret
                                     382 ;	main.c: 103: void SPI_write(uint8_t data) {
                                     383 ;	-----------------------------------------
                                     384 ;	 function SPI_write
                                     385 ;	-----------------------------------------
-      00016F                        386 _SPI_write:
+      000171                        386 _SPI_write:
                                     387 ;	main.c: 104: SPI_DR = data;
-      00016F C7 52 04         [ 1]  388 	ld	0x5204, a
+      000171 C7 52 04         [ 1]  388 	ld	0x5204, a
                                     389 ;	main.c: 105: while (!(SPI_SR & SPI_SR_TXE));
-      000172                        390 00101$:
-      000172 72 03 52 03 FB   [ 2]  391 	btjf	0x5203, #1, 00101$
+      000174                        390 00101$:
+      000174 72 03 52 03 FB   [ 2]  391 	btjf	0x5203, #1, 00101$
                                     392 ;	main.c: 106: }
-      000177 81               [ 4]  393 	ret
+      000179 81               [ 4]  393 	ret
                                     394 ;	main.c: 112: void ST7735_Write(uint8_t val, uint8_t cmd) {
                                     395 ;	-----------------------------------------
                                     396 ;	 function ST7735_Write
                                     397 ;	-----------------------------------------
-      000178                        398 _ST7735_Write:
-      000178 97               [ 1]  399 	ld	xl, a
+      00017A                        398 _ST7735_Write:
+      00017A 97               [ 1]  399 	ld	xl, a
                                     400 ;	main.c: 114: PA_ODR &= ~(1 << DC_PIN);
-      000179 C6 50 00         [ 1]  401 	ld	a, 0x5000
+      00017B C6 50 00         [ 1]  401 	ld	a, 0x5000
                                     402 ;	main.c: 113: if (cmd==CMD)
-      00017C 0D 03            [ 1]  403 	tnz	(0x03, sp)
-      00017E 26 07            [ 1]  404 	jrne	00102$
+      00017E 0D 03            [ 1]  403 	tnz	(0x03, sp)
+      000180 26 07            [ 1]  404 	jrne	00102$
                                     405 ;	main.c: 114: PA_ODR &= ~(1 << DC_PIN);
-      000180 A4 F7            [ 1]  406 	and	a, #0xf7
-      000182 C7 50 00         [ 1]  407 	ld	0x5000, a
-      000185 20 05            [ 2]  408 	jra	00103$
-      000187                        409 00102$:
+      000182 A4 F7            [ 1]  406 	and	a, #0xf7
+      000184 C7 50 00         [ 1]  407 	ld	0x5000, a
+      000187 20 05            [ 2]  408 	jra	00103$
+      000189                        409 00102$:
                                     410 ;	main.c: 116: PA_ODR |= (1 << DC_PIN);
-      000187 AA 08            [ 1]  411 	or	a, #0x08
-      000189 C7 50 00         [ 1]  412 	ld	0x5000, a
-      00018C                        413 00103$:
+      000189 AA 08            [ 1]  411 	or	a, #0x08
+      00018B C7 50 00         [ 1]  412 	ld	0x5000, a
+      00018E                        413 00103$:
                                     414 ;	main.c: 117: SPI_write(val);
-      00018C 9F               [ 1]  415 	ld	a, xl
-      00018D CDr01r6F         [ 4]  416 	call	_SPI_write
+      00018E 9F               [ 1]  415 	ld	a, xl
+      00018F CDr01r71         [ 4]  416 	call	_SPI_write
                                     417 ;	main.c: 120: PA_ODR |= (1 << DC_PIN);
-      000190 C6 50 00         [ 1]  418 	ld	a, 0x5000
-      000193 AA 08            [ 1]  419 	or	a, #0x08
-      000195 C7 50 00         [ 1]  420 	ld	0x5000, a
+      000192 C6 50 00         [ 1]  418 	ld	a, 0x5000
+      000195 AA 08            [ 1]  419 	or	a, #0x08
+      000197 C7 50 00         [ 1]  420 	ld	0x5000, a
                                     421 ;	main.c: 121: }
-      000198 85               [ 2]  422 	popw	x
-      000199 84               [ 1]  423 	pop	a
-      00019A FC               [ 2]  424 	jp	(x)
+      00019A 85               [ 2]  422 	popw	x
+      00019B 84               [ 1]  423 	pop	a
+      00019C FC               [ 2]  424 	jp	(x)
                                     425 ;	main.c: 131: void ST7735_Write16(uint16_t value) {
                                     426 ;	-----------------------------------------
                                     427 ;	 function ST7735_Write16
                                     428 ;	-----------------------------------------
-      00019B                        429 _ST7735_Write16:
+      00019D                        429 _ST7735_Write16:
                                     430 ;	main.c: 132: ST7735_WriteData(((value & 0xFF00) >> 0x08));
-      00019B 90 93            [ 1]  431 	ldw	y, x
+      00019D 90 93            [ 1]  431 	ldw	y, x
                                     432 ;	main.c: 124: PA_ODR |= (1 << DC_PIN);
-      00019D 72 16 50 00      [ 1]  433 	bset	0x5000, #3
+      00019F 72 16 50 00      [ 1]  433 	bset	0x5000, #3
                                     434 ;	main.c: 125: SPI_write(val);
-      0001A1 89               [ 2]  435 	pushw	x
-      0001A2 90 9E            [ 1]  436 	ld	a, yh
-      0001A4 CDr01r6F         [ 4]  437 	call	_SPI_write
-      0001A7 85               [ 2]  438 	popw	x
+      0001A3 89               [ 2]  435 	pushw	x
+      0001A4 90 9E            [ 1]  436 	ld	a, yh
+      0001A6 CDr01r71         [ 4]  437 	call	_SPI_write
+      0001A9 85               [ 2]  438 	popw	x
                                     439 ;	main.c: 128: PA_ODR |= (1 << DC_PIN);
-      0001A8 72 16 50 00      [ 1]  440 	bset	0x5000, #3
+      0001AA 72 16 50 00      [ 1]  440 	bset	0x5000, #3
                                     441 ;	main.c: 133: ST7735_WriteData((value & 0x00FF));
                                     442 ;	main.c: 124: PA_ODR |= (1 << DC_PIN);
-      0001AC 72 16 50 00      [ 1]  443 	bset	0x5000, #3
+      0001AE 72 16 50 00      [ 1]  443 	bset	0x5000, #3
                                     444 ;	main.c: 125: SPI_write(val);
-      0001B0 9F               [ 1]  445 	ld	a, xl
-      0001B1 CDr01r6F         [ 4]  446 	call	_SPI_write
+      0001B2 9F               [ 1]  445 	ld	a, xl
+      0001B3 CDr01r71         [ 4]  446 	call	_SPI_write
                                     447 ;	main.c: 128: PA_ODR |= (1 << DC_PIN);
-      0001B4 72 16 50 00      [ 1]  448 	bset	0x5000, #3
+      0001B6 72 16 50 00      [ 1]  448 	bset	0x5000, #3
                                     449 ;	main.c: 133: ST7735_WriteData((value & 0x00FF));
                                     450 ;	main.c: 134: }
-      0001B8 81               [ 4]  451 	ret
+      0001BA 81               [ 4]  451 	ret
                                     452 ;	main.c: 136: void ST7735_SetAddrWindow(uint8_t x, uint8_t y, uint8_t w, uint8_t h) {
                                     453 ;	-----------------------------------------
                                     454 ;	 function ST7735_SetAddrWindow
                                     455 ;	-----------------------------------------
-      0001B9                        456 _ST7735_SetAddrWindow:
-      0001B9 52 02            [ 2]  457 	sub	sp, #2
-      0001BB 6B 02            [ 1]  458 	ld	(0x02, sp), a
+      0001BB                        456 _ST7735_SetAddrWindow:
+      0001BB 52 02            [ 2]  457 	sub	sp, #2
+      0001BD 6B 02            [ 1]  458 	ld	(0x02, sp), a
                                     459 ;	main.c: 137: y += 0x18;
-      0001BD 7B 05            [ 1]  460 	ld	a, (0x05, sp)
-      0001BF AB 18            [ 1]  461 	add	a, #0x18
-      0001C1 6B 05            [ 1]  462 	ld	(0x05, sp), a
+      0001BF 7B 05            [ 1]  460 	ld	a, (0x05, sp)
+      0001C1 AB 18            [ 1]  461 	add	a, #0x18
+      0001C3 6B 05            [ 1]  462 	ld	(0x05, sp), a
                                     463 ;	main.c: 138: w += x -1;
-      0001C3 7B 02            [ 1]  464 	ld	a, (0x02, sp)
-      0001C5 4A               [ 1]  465 	dec	a
-      0001C6 6B 01            [ 1]  466 	ld	(0x01, sp), a
-      0001C8 7B 06            [ 1]  467 	ld	a, (0x06, sp)
-      0001CA 1B 01            [ 1]  468 	add	a, (0x01, sp)
-      0001CC 6B 06            [ 1]  469 	ld	(0x06, sp), a
+      0001C5 7B 02            [ 1]  464 	ld	a, (0x02, sp)
+      0001C7 4A               [ 1]  465 	dec	a
+      0001C8 6B 01            [ 1]  466 	ld	(0x01, sp), a
+      0001CA 7B 06            [ 1]  467 	ld	a, (0x06, sp)
+      0001CC 1B 01            [ 1]  468 	add	a, (0x01, sp)
+      0001CE 6B 06            [ 1]  469 	ld	(0x06, sp), a
                                     470 ;	main.c: 139: h += y -1;
-      0001CE 7B 05            [ 1]  471 	ld	a, (0x05, sp)
-      0001D0 4A               [ 1]  472 	dec	a
-      0001D1 6B 01            [ 1]  473 	ld	(0x01, sp), a
-      0001D3 7B 07            [ 1]  474 	ld	a, (0x07, sp)
-      0001D5 1B 01            [ 1]  475 	add	a, (0x01, sp)
-      0001D7 6B 07            [ 1]  476 	ld	(0x07, sp), a
+      0001D0 7B 05            [ 1]  471 	ld	a, (0x05, sp)
+      0001D2 4A               [ 1]  472 	dec	a
+      0001D3 6B 01            [ 1]  473 	ld	(0x01, sp), a
+      0001D5 7B 07            [ 1]  474 	ld	a, (0x07, sp)
+      0001D7 1B 01            [ 1]  475 	add	a, (0x01, sp)
+      0001D9 6B 07            [ 1]  476 	ld	(0x07, sp), a
                                     477 ;	main.c: 140: ST7735_Write(ST7735_CASET, CMD);
-      0001D9 4B 00            [ 1]  478 	push	#0x00
-      0001DB A6 2A            [ 1]  479 	ld	a, #0x2a
-      0001DD CDr01r78         [ 4]  480 	call	_ST7735_Write
+      0001DB 4B 00            [ 1]  478 	push	#0x00
+      0001DD A6 2A            [ 1]  479 	ld	a, #0x2a
+      0001DF CDr01r7A         [ 4]  480 	call	_ST7735_Write
                                     481 ;	main.c: 141: ST7735_Write(0x00, DAT);
-      0001E0 4B 01            [ 1]  482 	push	#0x01
-      0001E2 4F               [ 1]  483 	clr	a
-      0001E3 CDr01r78         [ 4]  484 	call	_ST7735_Write
+      0001E2 4B 01            [ 1]  482 	push	#0x01
+      0001E4 4F               [ 1]  483 	clr	a
+      0001E5 CDr01r7A         [ 4]  484 	call	_ST7735_Write
                                     485 ;	main.c: 142: ST7735_Write(x, DAT);
-      0001E6 4B 01            [ 1]  486 	push	#0x01
-      0001E8 7B 03            [ 1]  487 	ld	a, (0x03, sp)
-      0001EA CDr01r78         [ 4]  488 	call	_ST7735_Write
+      0001E8 4B 01            [ 1]  486 	push	#0x01
+      0001EA 7B 03            [ 1]  487 	ld	a, (0x03, sp)
+      0001EC CDr01r7A         [ 4]  488 	call	_ST7735_Write
                                     489 ;	main.c: 143: ST7735_Write(0x00, DAT);
-      0001ED 4B 01            [ 1]  490 	push	#0x01
-      0001EF 4F               [ 1]  491 	clr	a
-      0001F0 CDr01r78         [ 4]  492 	call	_ST7735_Write
+      0001EF 4B 01            [ 1]  490 	push	#0x01
+      0001F1 4F               [ 1]  491 	clr	a
+      0001F2 CDr01r7A         [ 4]  492 	call	_ST7735_Write
                                     493 ;	main.c: 144: ST7735_Write(w, DAT);
-      0001F3 4B 01            [ 1]  494 	push	#0x01
-      0001F5 7B 07            [ 1]  495 	ld	a, (0x07, sp)
-      0001F7 CDr01r78         [ 4]  496 	call	_ST7735_Write
+      0001F5 4B 01            [ 1]  494 	push	#0x01
+      0001F7 7B 07            [ 1]  495 	ld	a, (0x07, sp)
+      0001F9 CDr01r7A         [ 4]  496 	call	_ST7735_Write
                                     497 ;	main.c: 145: ST7735_Write(ST7735_RASET, CMD);
-      0001FA 4B 00            [ 1]  498 	push	#0x00
-      0001FC A6 2B            [ 1]  499 	ld	a, #0x2b
-      0001FE CDr01r78         [ 4]  500 	call	_ST7735_Write
+      0001FC 4B 00            [ 1]  498 	push	#0x00
+      0001FE A6 2B            [ 1]  499 	ld	a, #0x2b
+      000200 CDr01r7A         [ 4]  500 	call	_ST7735_Write
                                     501 ;	main.c: 146: ST7735_Write(0x00, DAT);
-      000201 4B 01            [ 1]  502 	push	#0x01
-      000203 4F               [ 1]  503 	clr	a
-      000204 CDr01r78         [ 4]  504 	call	_ST7735_Write
+      000203 4B 01            [ 1]  502 	push	#0x01
+      000205 4F               [ 1]  503 	clr	a
+      000206 CDr01r7A         [ 4]  504 	call	_ST7735_Write
                                     505 ;	main.c: 147: ST7735_Write(y, DAT);
-      000207 4B 01            [ 1]  506 	push	#0x01
-      000209 7B 06            [ 1]  507 	ld	a, (0x06, sp)
-      00020B CDr01r78         [ 4]  508 	call	_ST7735_Write
+      000209 4B 01            [ 1]  506 	push	#0x01
+      00020B 7B 06            [ 1]  507 	ld	a, (0x06, sp)
+      00020D CDr01r7A         [ 4]  508 	call	_ST7735_Write
                                     509 ;	main.c: 148: ST7735_Write(0x00, DAT);
-      00020E 4B 01            [ 1]  510 	push	#0x01
-      000210 4F               [ 1]  511 	clr	a
-      000211 CDr01r78         [ 4]  512 	call	_ST7735_Write
+      000210 4B 01            [ 1]  510 	push	#0x01
+      000212 4F               [ 1]  511 	clr	a
+      000213 CDr01r7A         [ 4]  512 	call	_ST7735_Write
                                     513 ;	main.c: 149: ST7735_Write(h, DAT);
-      000214 4B 01            [ 1]  514 	push	#0x01
-      000216 7B 08            [ 1]  515 	ld	a, (0x08, sp)
-      000218 CDr01r78         [ 4]  516 	call	_ST7735_Write
+      000216 4B 01            [ 1]  514 	push	#0x01
+      000218 7B 08            [ 1]  515 	ld	a, (0x08, sp)
+      00021A CDr01r7A         [ 4]  516 	call	_ST7735_Write
                                     517 ;	main.c: 150: ST7735_Write(ST7735_RAMWR, CMD);
-      00021B 4B 00            [ 1]  518 	push	#0x00
-      00021D A6 2C            [ 1]  519 	ld	a, #0x2c
-      00021F CDr01r78         [ 4]  520 	call	_ST7735_Write
+      00021D 4B 00            [ 1]  518 	push	#0x00
+      00021F A6 2C            [ 1]  519 	ld	a, #0x2c
+      000221 CDr01r7A         [ 4]  520 	call	_ST7735_Write
                                     521 ;	main.c: 151: }
-      000222 1E 03            [ 2]  522 	ldw	x, (3, sp)
-      000224 5B 07            [ 2]  523 	addw	sp, #7
-      000226 FC               [ 2]  524 	jp	(x)
+      000224 1E 03            [ 2]  522 	ldw	x, (3, sp)
+      000226 5B 07            [ 2]  523 	addw	sp, #7
+      000228 FC               [ 2]  524 	jp	(x)
                                     525 ;	main.c: 153: void ST7735_Init(void) {
                                     526 ;	-----------------------------------------
                                     527 ;	 function ST7735_Init
                                     528 ;	-----------------------------------------
-      000227                        529 _ST7735_Init:
+      000229                        529 _ST7735_Init:
                                     530 ;	main.c: 155: PA_DDR |= (1 << DC_PIN);
-      000227 72 16 50 02      [ 1]  531 	bset	0x5002, #3
+      000229 72 16 50 02      [ 1]  531 	bset	0x5002, #3
                                     532 ;	main.c: 156: PA_CR1 |= (1 << DC_PIN);
-      00022B 72 16 50 03      [ 1]  533 	bset	0x5003, #3
+      00022D 72 16 50 03      [ 1]  533 	bset	0x5003, #3
                                     534 ;	main.c: 157: PA_ODR |= (1 << DC_PIN);
-      00022F 72 16 50 00      [ 1]  535 	bset	0x5000, #3
+      000231 72 16 50 00      [ 1]  535 	bset	0x5000, #3
                                     536 ;	main.c: 159: PD_DDR |= (1 << RST_PIN);
-      000233 72 1C 50 11      [ 1]  537 	bset	0x5011, #6
+      000235 72 1C 50 11      [ 1]  537 	bset	0x5011, #6
                                     538 ;	main.c: 160: PD_CR1 |= (1 << RST_PIN);
-      000237 72 1C 50 12      [ 1]  539 	bset	0x5012, #6
+      000239 72 1C 50 12      [ 1]  539 	bset	0x5012, #6
                                     540 ;	main.c: 161: PD_ODR &= ~(1 << RST_PIN);
-      00023B 72 1D 50 0F      [ 1]  541 	bres	0x500f, #6
+      00023D 72 1D 50 0F      [ 1]  541 	bres	0x500f, #6
                                     542 ;	main.c: 163: SPI_init();
-      00023F CDr01r52         [ 4]  543 	call	_SPI_init
+      000241 CDr01r54         [ 4]  543 	call	_SPI_init
                                     544 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      000242 90 5F            [ 1]  545 	clrw	y
-      000244 5F               [ 1]  546 	clrw	x
-      000245                        547 00116$:
-      000245 90 A3 0D 40      [ 2]  548 	cpw	y, #0x0d40
-      000249 9F               [ 1]  549 	ld	a, xl
-      00024A A2 03            [ 1]  550 	sbc	a, #0x03
-      00024C 9E               [ 1]  551 	ld	a, xh
-      00024D A2 00            [ 1]  552 	sbc	a, #0x00
-      00024F 24 08            [ 1]  553 	jrnc	00102$
+      000244 90 5F            [ 1]  545 	clrw	y
+      000246 5F               [ 1]  546 	clrw	x
+      000247                        547 00116$:
+      000247 90 A3 0D 40      [ 2]  548 	cpw	y, #0x0d40
+      00024B 9F               [ 1]  549 	ld	a, xl
+      00024C A2 03            [ 1]  550 	sbc	a, #0x03
+      00024E 9E               [ 1]  551 	ld	a, xh
+      00024F A2 00            [ 1]  552 	sbc	a, #0x00
+      000251 24 08            [ 1]  553 	jrnc	00102$
                                     554 ;	main.c: 28: __asm__("nop");
-      000251 9D               [ 1]  555 	nop
+      000253 9D               [ 1]  555 	nop
                                     556 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      000252 90 5C            [ 1]  557 	incw	y
-      000254 26 EF            [ 1]  558 	jrne	00116$
-      000256 5C               [ 1]  559 	incw	x
-      000257 20 EC            [ 2]  560 	jra	00116$
+      000254 90 5C            [ 1]  557 	incw	y
+      000256 26 EF            [ 1]  558 	jrne	00116$
+      000258 5C               [ 1]  559 	incw	x
+      000259 20 EC            [ 2]  560 	jra	00116$
                                     561 ;	main.c: 164: delay_ms(100);
-      000259                        562 00102$:
+      00025B                        562 00102$:
                                     563 ;	main.c: 166: PD_ODR |= (1 << RST_PIN);
-      000259 72 1C 50 0F      [ 1]  564 	bset	0x500f, #6
+      00025B 72 1C 50 0F      [ 1]  564 	bset	0x500f, #6
                                     565 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      00025D 90 5F            [ 1]  566 	clrw	y
-      00025F 5F               [ 1]  567 	clrw	x
-      000260                        568 00119$:
-      000260 90 A3 0D 40      [ 2]  569 	cpw	y, #0x0d40
-      000264 9F               [ 1]  570 	ld	a, xl
-      000265 A2 03            [ 1]  571 	sbc	a, #0x03
-      000267 9E               [ 1]  572 	ld	a, xh
-      000268 A2 00            [ 1]  573 	sbc	a, #0x00
-      00026A 24 08            [ 1]  574 	jrnc	00104$
+      00025F 90 5F            [ 1]  566 	clrw	y
+      000261 5F               [ 1]  567 	clrw	x
+      000262                        568 00119$:
+      000262 90 A3 0D 40      [ 2]  569 	cpw	y, #0x0d40
+      000266 9F               [ 1]  570 	ld	a, xl
+      000267 A2 03            [ 1]  571 	sbc	a, #0x03
+      000269 9E               [ 1]  572 	ld	a, xh
+      00026A A2 00            [ 1]  573 	sbc	a, #0x00
+      00026C 24 08            [ 1]  574 	jrnc	00104$
                                     575 ;	main.c: 28: __asm__("nop");
-      00026C 9D               [ 1]  576 	nop
+      00026E 9D               [ 1]  576 	nop
                                     577 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      00026D 90 5C            [ 1]  578 	incw	y
-      00026F 26 EF            [ 1]  579 	jrne	00119$
-      000271 5C               [ 1]  580 	incw	x
-      000272 20 EC            [ 2]  581 	jra	00119$
+      00026F 90 5C            [ 1]  578 	incw	y
+      000271 26 EF            [ 1]  579 	jrne	00119$
+      000273 5C               [ 1]  580 	incw	x
+      000274 20 EC            [ 2]  581 	jra	00119$
                                     582 ;	main.c: 167: delay_ms(100);
-      000274                        583 00104$:
+      000276                        583 00104$:
                                     584 ;	main.c: 169: ST7735_Write(ST7735_SWRESET, CMD);
-      000274 4B 00            [ 1]  585 	push	#0x00
-      000276 A6 01            [ 1]  586 	ld	a, #0x01
-      000278 CDr01r78         [ 4]  587 	call	_ST7735_Write
+      000276 4B 00            [ 1]  585 	push	#0x00
+      000278 A6 01            [ 1]  586 	ld	a, #0x01
+      00027A CDr01r7A         [ 4]  587 	call	_ST7735_Write
                                     588 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      00027B 90 5F            [ 1]  589 	clrw	y
-      00027D 5F               [ 1]  590 	clrw	x
-      00027E                        591 00122$:
-      00027E 90 A3 93 E0      [ 2]  592 	cpw	y, #0x93e0
-      000282 9F               [ 1]  593 	ld	a, xl
-      000283 A2 04            [ 1]  594 	sbc	a, #0x04
-      000285 9E               [ 1]  595 	ld	a, xh
-      000286 A2 00            [ 1]  596 	sbc	a, #0x00
-      000288 24 08            [ 1]  597 	jrnc	00106$
+      00027D 90 5F            [ 1]  589 	clrw	y
+      00027F 5F               [ 1]  590 	clrw	x
+      000280                        591 00122$:
+      000280 90 A3 93 E0      [ 2]  592 	cpw	y, #0x93e0
+      000284 9F               [ 1]  593 	ld	a, xl
+      000285 A2 04            [ 1]  594 	sbc	a, #0x04
+      000287 9E               [ 1]  595 	ld	a, xh
+      000288 A2 00            [ 1]  596 	sbc	a, #0x00
+      00028A 24 08            [ 1]  597 	jrnc	00106$
                                     598 ;	main.c: 28: __asm__("nop");
-      00028A 9D               [ 1]  599 	nop
+      00028C 9D               [ 1]  599 	nop
                                     600 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      00028B 90 5C            [ 1]  601 	incw	y
-      00028D 26 EF            [ 1]  602 	jrne	00122$
-      00028F 5C               [ 1]  603 	incw	x
-      000290 20 EC            [ 2]  604 	jra	00122$
+      00028D 90 5C            [ 1]  601 	incw	y
+      00028F 26 EF            [ 1]  602 	jrne	00122$
+      000291 5C               [ 1]  603 	incw	x
+      000292 20 EC            [ 2]  604 	jra	00122$
                                     605 ;	main.c: 170: delay_ms(150);
-      000292                        606 00106$:
+      000294                        606 00106$:
                                     607 ;	main.c: 171: ST7735_Write(ST7735_SLPOUT, CMD);
-      000292 4B 00            [ 1]  608 	push	#0x00
-      000294 A6 11            [ 1]  609 	ld	a, #0x11
-      000296 CDr01r78         [ 4]  610 	call	_ST7735_Write
+      000294 4B 00            [ 1]  608 	push	#0x00
+      000296 A6 11            [ 1]  609 	ld	a, #0x11
+      000298 CDr01r7A         [ 4]  610 	call	_ST7735_Write
                                     611 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      000299 90 5F            [ 1]  612 	clrw	y
-      00029B 5F               [ 1]  613 	clrw	x
-      00029C                        614 00125$:
-      00029C 90 A3 42 40      [ 2]  615 	cpw	y, #0x4240
-      0002A0 9F               [ 1]  616 	ld	a, xl
-      0002A1 A2 0F            [ 1]  617 	sbc	a, #0x0f
-      0002A3 9E               [ 1]  618 	ld	a, xh
-      0002A4 A2 00            [ 1]  619 	sbc	a, #0x00
-      0002A6 24 08            [ 1]  620 	jrnc	00108$
+      00029B 90 5F            [ 1]  612 	clrw	y
+      00029D 5F               [ 1]  613 	clrw	x
+      00029E                        614 00125$:
+      00029E 90 A3 42 40      [ 2]  615 	cpw	y, #0x4240
+      0002A2 9F               [ 1]  616 	ld	a, xl
+      0002A3 A2 0F            [ 1]  617 	sbc	a, #0x0f
+      0002A5 9E               [ 1]  618 	ld	a, xh
+      0002A6 A2 00            [ 1]  619 	sbc	a, #0x00
+      0002A8 24 08            [ 1]  620 	jrnc	00108$
                                     621 ;	main.c: 28: __asm__("nop");
-      0002A8 9D               [ 1]  622 	nop
+      0002AA 9D               [ 1]  622 	nop
                                     623 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      0002A9 90 5C            [ 1]  624 	incw	y
-      0002AB 26 EF            [ 1]  625 	jrne	00125$
-      0002AD 5C               [ 1]  626 	incw	x
-      0002AE 20 EC            [ 2]  627 	jra	00125$
+      0002AB 90 5C            [ 1]  624 	incw	y
+      0002AD 26 EF            [ 1]  625 	jrne	00125$
+      0002AF 5C               [ 1]  626 	incw	x
+      0002B0 20 EC            [ 2]  627 	jra	00125$
                                     628 ;	main.c: 172: delay_ms(500);
-      0002B0                        629 00108$:
+      0002B2                        629 00108$:
                                     630 ;	main.c: 173: ST7735_Write(ST7735_FRMCTR1, CMD);
-      0002B0 4B 00            [ 1]  631 	push	#0x00
-      0002B2 A6 B1            [ 1]  632 	ld	a, #0xb1
-      0002B4 CDr01r78         [ 4]  633 	call	_ST7735_Write
+      0002B2 4B 00            [ 1]  631 	push	#0x00
+      0002B4 A6 B1            [ 1]  632 	ld	a, #0xb1
+      0002B6 CDr01r7A         [ 4]  633 	call	_ST7735_Write
                                     634 ;	main.c: 174: ST7735_Write(0x01, DAT);
-      0002B7 4B 01            [ 1]  635 	push	#0x01
-      0002B9 A6 01            [ 1]  636 	ld	a, #0x01
-      0002BB CDr01r78         [ 4]  637 	call	_ST7735_Write
+      0002B9 4B 01            [ 1]  635 	push	#0x01
+      0002BB A6 01            [ 1]  636 	ld	a, #0x01
+      0002BD CDr01r7A         [ 4]  637 	call	_ST7735_Write
                                     638 ;	main.c: 175: ST7735_Write(0x2C, DAT);
-      0002BE 4B 01            [ 1]  639 	push	#0x01
-      0002C0 A6 2C            [ 1]  640 	ld	a, #0x2c
-      0002C2 CDr01r78         [ 4]  641 	call	_ST7735_Write
+      0002C0 4B 01            [ 1]  639 	push	#0x01
+      0002C2 A6 2C            [ 1]  640 	ld	a, #0x2c
+      0002C4 CDr01r7A         [ 4]  641 	call	_ST7735_Write
                                     642 ;	main.c: 176: ST7735_Write(0x2D, DAT);
-      0002C5 4B 01            [ 1]  643 	push	#0x01
-      0002C7 A6 2D            [ 1]  644 	ld	a, #0x2d
-      0002C9 CDr01r78         [ 4]  645 	call	_ST7735_Write
+      0002C7 4B 01            [ 1]  643 	push	#0x01
+      0002C9 A6 2D            [ 1]  644 	ld	a, #0x2d
+      0002CB CDr01r7A         [ 4]  645 	call	_ST7735_Write
                                     646 ;	main.c: 177: ST7735_Write(ST7735_FRMCTR2, CMD);
-      0002CC 4B 00            [ 1]  647 	push	#0x00
-      0002CE A6 B2            [ 1]  648 	ld	a, #0xb2
-      0002D0 CDr01r78         [ 4]  649 	call	_ST7735_Write
+      0002CE 4B 00            [ 1]  647 	push	#0x00
+      0002D0 A6 B2            [ 1]  648 	ld	a, #0xb2
+      0002D2 CDr01r7A         [ 4]  649 	call	_ST7735_Write
                                     650 ;	main.c: 178: ST7735_Write(0x01, DAT);
-      0002D3 4B 01            [ 1]  651 	push	#0x01
-      0002D5 A6 01            [ 1]  652 	ld	a, #0x01
-      0002D7 CDr01r78         [ 4]  653 	call	_ST7735_Write
+      0002D5 4B 01            [ 1]  651 	push	#0x01
+      0002D7 A6 01            [ 1]  652 	ld	a, #0x01
+      0002D9 CDr01r7A         [ 4]  653 	call	_ST7735_Write
                                     654 ;	main.c: 179: ST7735_Write(0x2C, DAT);
-      0002DA 4B 01            [ 1]  655 	push	#0x01
-      0002DC A6 2C            [ 1]  656 	ld	a, #0x2c
-      0002DE CDr01r78         [ 4]  657 	call	_ST7735_Write
+      0002DC 4B 01            [ 1]  655 	push	#0x01
+      0002DE A6 2C            [ 1]  656 	ld	a, #0x2c
+      0002E0 CDr01r7A         [ 4]  657 	call	_ST7735_Write
                                     658 ;	main.c: 180: ST7735_Write(0x2D, DAT);
-      0002E1 4B 01            [ 1]  659 	push	#0x01
-      0002E3 A6 2D            [ 1]  660 	ld	a, #0x2d
-      0002E5 CDr01r78         [ 4]  661 	call	_ST7735_Write
+      0002E3 4B 01            [ 1]  659 	push	#0x01
+      0002E5 A6 2D            [ 1]  660 	ld	a, #0x2d
+      0002E7 CDr01r7A         [ 4]  661 	call	_ST7735_Write
                                     662 ;	main.c: 181: ST7735_Write(ST7735_FRMCTR3, CMD);
-      0002E8 4B 00            [ 1]  663 	push	#0x00
-      0002EA A6 B3            [ 1]  664 	ld	a, #0xb3
-      0002EC CDr01r78         [ 4]  665 	call	_ST7735_Write
+      0002EA 4B 00            [ 1]  663 	push	#0x00
+      0002EC A6 B3            [ 1]  664 	ld	a, #0xb3
+      0002EE CDr01r7A         [ 4]  665 	call	_ST7735_Write
                                     666 ;	main.c: 182: ST7735_Write(0x01, DAT);
-      0002EF 4B 01            [ 1]  667 	push	#0x01
-      0002F1 A6 01            [ 1]  668 	ld	a, #0x01
-      0002F3 CDr01r78         [ 4]  669 	call	_ST7735_Write
+      0002F1 4B 01            [ 1]  667 	push	#0x01
+      0002F3 A6 01            [ 1]  668 	ld	a, #0x01
+      0002F5 CDr01r7A         [ 4]  669 	call	_ST7735_Write
                                     670 ;	main.c: 183: ST7735_Write(0x2C, DAT);
-      0002F6 4B 01            [ 1]  671 	push	#0x01
-      0002F8 A6 2C            [ 1]  672 	ld	a, #0x2c
-      0002FA CDr01r78         [ 4]  673 	call	_ST7735_Write
+      0002F8 4B 01            [ 1]  671 	push	#0x01
+      0002FA A6 2C            [ 1]  672 	ld	a, #0x2c
+      0002FC CDr01r7A         [ 4]  673 	call	_ST7735_Write
                                     674 ;	main.c: 184: ST7735_Write(0x2D, DAT);
-      0002FD 4B 01            [ 1]  675 	push	#0x01
-      0002FF A6 2D            [ 1]  676 	ld	a, #0x2d
-      000301 CDr01r78         [ 4]  677 	call	_ST7735_Write
+      0002FF 4B 01            [ 1]  675 	push	#0x01
+      000301 A6 2D            [ 1]  676 	ld	a, #0x2d
+      000303 CDr01r7A         [ 4]  677 	call	_ST7735_Write
                                     678 ;	main.c: 185: ST7735_Write(0x01, DAT);
-      000304 4B 01            [ 1]  679 	push	#0x01
-      000306 A6 01            [ 1]  680 	ld	a, #0x01
-      000308 CDr01r78         [ 4]  681 	call	_ST7735_Write
+      000306 4B 01            [ 1]  679 	push	#0x01
+      000308 A6 01            [ 1]  680 	ld	a, #0x01
+      00030A CDr01r7A         [ 4]  681 	call	_ST7735_Write
                                     682 ;	main.c: 186: ST7735_Write(0x2C, DAT);
-      00030B 4B 01            [ 1]  683 	push	#0x01
-      00030D A6 2C            [ 1]  684 	ld	a, #0x2c
-      00030F CDr01r78         [ 4]  685 	call	_ST7735_Write
+      00030D 4B 01            [ 1]  683 	push	#0x01
+      00030F A6 2C            [ 1]  684 	ld	a, #0x2c
+      000311 CDr01r7A         [ 4]  685 	call	_ST7735_Write
                                     686 ;	main.c: 187: ST7735_Write(0x2D, DAT);
-      000312 4B 01            [ 1]  687 	push	#0x01
-      000314 A6 2D            [ 1]  688 	ld	a, #0x2d
-      000316 CDr01r78         [ 4]  689 	call	_ST7735_Write
+      000314 4B 01            [ 1]  687 	push	#0x01
+      000316 A6 2D            [ 1]  688 	ld	a, #0x2d
+      000318 CDr01r7A         [ 4]  689 	call	_ST7735_Write
                                     690 ;	main.c: 188: ST7735_Write(ST7735_INVCTR, CMD);
-      000319 4B 00            [ 1]  691 	push	#0x00
-      00031B A6 B4            [ 1]  692 	ld	a, #0xb4
-      00031D CDr01r78         [ 4]  693 	call	_ST7735_Write
+      00031B 4B 00            [ 1]  691 	push	#0x00
+      00031D A6 B4            [ 1]  692 	ld	a, #0xb4
+      00031F CDr01r7A         [ 4]  693 	call	_ST7735_Write
                                     694 ;	main.c: 189: ST7735_Write(0x07, DAT);
-      000320 4B 01            [ 1]  695 	push	#0x01
-      000322 A6 07            [ 1]  696 	ld	a, #0x07
-      000324 CDr01r78         [ 4]  697 	call	_ST7735_Write
+      000322 4B 01            [ 1]  695 	push	#0x01
+      000324 A6 07            [ 1]  696 	ld	a, #0x07
+      000326 CDr01r7A         [ 4]  697 	call	_ST7735_Write
                                     698 ;	main.c: 190: ST7735_Write(ST7735_PWCTR1, CMD);
-      000327 4B 00            [ 1]  699 	push	#0x00
-      000329 A6 C0            [ 1]  700 	ld	a, #0xc0
-      00032B CDr01r78         [ 4]  701 	call	_ST7735_Write
+      000329 4B 00            [ 1]  699 	push	#0x00
+      00032B A6 C0            [ 1]  700 	ld	a, #0xc0
+      00032D CDr01r7A         [ 4]  701 	call	_ST7735_Write
                                     702 ;	main.c: 191: ST7735_Write(0xA2, DAT);
-      00032E 4B 01            [ 1]  703 	push	#0x01
-      000330 A6 A2            [ 1]  704 	ld	a, #0xa2
-      000332 CDr01r78         [ 4]  705 	call	_ST7735_Write
+      000330 4B 01            [ 1]  703 	push	#0x01
+      000332 A6 A2            [ 1]  704 	ld	a, #0xa2
+      000334 CDr01r7A         [ 4]  705 	call	_ST7735_Write
                                     706 ;	main.c: 192: ST7735_Write(0x02, DAT);
-      000335 4B 01            [ 1]  707 	push	#0x01
-      000337 A6 02            [ 1]  708 	ld	a, #0x02
-      000339 CDr01r78         [ 4]  709 	call	_ST7735_Write
+      000337 4B 01            [ 1]  707 	push	#0x01
+      000339 A6 02            [ 1]  708 	ld	a, #0x02
+      00033B CDr01r7A         [ 4]  709 	call	_ST7735_Write
                                     710 ;	main.c: 193: ST7735_Write(0x84, DAT);
-      00033C 4B 01            [ 1]  711 	push	#0x01
-      00033E A6 84            [ 1]  712 	ld	a, #0x84
-      000340 CDr01r78         [ 4]  713 	call	_ST7735_Write
+      00033E 4B 01            [ 1]  711 	push	#0x01
+      000340 A6 84            [ 1]  712 	ld	a, #0x84
+      000342 CDr01r7A         [ 4]  713 	call	_ST7735_Write
                                     714 ;	main.c: 194: ST7735_Write(ST7735_PWCTR2, CMD);
-      000343 4B 00            [ 1]  715 	push	#0x00
-      000345 A6 C1            [ 1]  716 	ld	a, #0xc1
-      000347 CDr01r78         [ 4]  717 	call	_ST7735_Write
+      000345 4B 00            [ 1]  715 	push	#0x00
+      000347 A6 C1            [ 1]  716 	ld	a, #0xc1
+      000349 CDr01r7A         [ 4]  717 	call	_ST7735_Write
                                     718 ;	main.c: 195: ST7735_Write(0xC5, DAT);
-      00034A 4B 01            [ 1]  719 	push	#0x01
-      00034C A6 C5            [ 1]  720 	ld	a, #0xc5
-      00034E CDr01r78         [ 4]  721 	call	_ST7735_Write
+      00034C 4B 01            [ 1]  719 	push	#0x01
+      00034E A6 C5            [ 1]  720 	ld	a, #0xc5
+      000350 CDr01r7A         [ 4]  721 	call	_ST7735_Write
                                     722 ;	main.c: 196: ST7735_Write(ST7735_PWCTR3, CMD);
-      000351 4B 00            [ 1]  723 	push	#0x00
-      000353 A6 C2            [ 1]  724 	ld	a, #0xc2
-      000355 CDr01r78         [ 4]  725 	call	_ST7735_Write
+      000353 4B 00            [ 1]  723 	push	#0x00
+      000355 A6 C2            [ 1]  724 	ld	a, #0xc2
+      000357 CDr01r7A         [ 4]  725 	call	_ST7735_Write
                                     726 ;	main.c: 197: ST7735_Write(0x0A, DAT);
-      000358 4B 01            [ 1]  727 	push	#0x01
-      00035A A6 0A            [ 1]  728 	ld	a, #0x0a
-      00035C CDr01r78         [ 4]  729 	call	_ST7735_Write
+      00035A 4B 01            [ 1]  727 	push	#0x01
+      00035C A6 0A            [ 1]  728 	ld	a, #0x0a
+      00035E CDr01r7A         [ 4]  729 	call	_ST7735_Write
                                     730 ;	main.c: 198: ST7735_Write(0x00, DAT);
-      00035F 4B 01            [ 1]  731 	push	#0x01
-      000361 4F               [ 1]  732 	clr	a
-      000362 CDr01r78         [ 4]  733 	call	_ST7735_Write
+      000361 4B 01            [ 1]  731 	push	#0x01
+      000363 4F               [ 1]  732 	clr	a
+      000364 CDr01r7A         [ 4]  733 	call	_ST7735_Write
                                     734 ;	main.c: 199: ST7735_Write(ST7735_PWCTR4, CMD);
-      000365 4B 00            [ 1]  735 	push	#0x00
-      000367 A6 C3            [ 1]  736 	ld	a, #0xc3
-      000369 CDr01r78         [ 4]  737 	call	_ST7735_Write
+      000367 4B 00            [ 1]  735 	push	#0x00
+      000369 A6 C3            [ 1]  736 	ld	a, #0xc3
+      00036B CDr01r7A         [ 4]  737 	call	_ST7735_Write
                                     738 ;	main.c: 200: ST7735_Write(0x8A, DAT);
-      00036C 4B 01            [ 1]  739 	push	#0x01
-      00036E A6 8A            [ 1]  740 	ld	a, #0x8a
-      000370 CDr01r78         [ 4]  741 	call	_ST7735_Write
+      00036E 4B 01            [ 1]  739 	push	#0x01
+      000370 A6 8A            [ 1]  740 	ld	a, #0x8a
+      000372 CDr01r7A         [ 4]  741 	call	_ST7735_Write
                                     742 ;	main.c: 201: ST7735_Write(0x2A, DAT);
-      000373 4B 01            [ 1]  743 	push	#0x01
-      000375 A6 2A            [ 1]  744 	ld	a, #0x2a
-      000377 CDr01r78         [ 4]  745 	call	_ST7735_Write
+      000375 4B 01            [ 1]  743 	push	#0x01
+      000377 A6 2A            [ 1]  744 	ld	a, #0x2a
+      000379 CDr01r7A         [ 4]  745 	call	_ST7735_Write
                                     746 ;	main.c: 202: ST7735_Write(ST7735_PWCTR5, CMD);
-      00037A 4B 00            [ 1]  747 	push	#0x00
-      00037C A6 C4            [ 1]  748 	ld	a, #0xc4
-      00037E CDr01r78         [ 4]  749 	call	_ST7735_Write
+      00037C 4B 00            [ 1]  747 	push	#0x00
+      00037E A6 C4            [ 1]  748 	ld	a, #0xc4
+      000380 CDr01r7A         [ 4]  749 	call	_ST7735_Write
                                     750 ;	main.c: 203: ST7735_Write(0x8A, DAT);
-      000381 4B 01            [ 1]  751 	push	#0x01
-      000383 A6 8A            [ 1]  752 	ld	a, #0x8a
-      000385 CDr01r78         [ 4]  753 	call	_ST7735_Write
+      000383 4B 01            [ 1]  751 	push	#0x01
+      000385 A6 8A            [ 1]  752 	ld	a, #0x8a
+      000387 CDr01r7A         [ 4]  753 	call	_ST7735_Write
                                     754 ;	main.c: 204: ST7735_Write(0xEE, DAT);
-      000388 4B 01            [ 1]  755 	push	#0x01
-      00038A A6 EE            [ 1]  756 	ld	a, #0xee
-      00038C CDr01r78         [ 4]  757 	call	_ST7735_Write
+      00038A 4B 01            [ 1]  755 	push	#0x01
+      00038C A6 EE            [ 1]  756 	ld	a, #0xee
+      00038E CDr01r7A         [ 4]  757 	call	_ST7735_Write
                                     758 ;	main.c: 205: ST7735_Write(ST7735_VMCTR1, CMD);
-      00038F 4B 00            [ 1]  759 	push	#0x00
-      000391 A6 C5            [ 1]  760 	ld	a, #0xc5
-      000393 CDr01r78         [ 4]  761 	call	_ST7735_Write
+      000391 4B 00            [ 1]  759 	push	#0x00
+      000393 A6 C5            [ 1]  760 	ld	a, #0xc5
+      000395 CDr01r7A         [ 4]  761 	call	_ST7735_Write
                                     762 ;	main.c: 206: ST7735_Write(0x0E, DAT);
-      000396 4B 01            [ 1]  763 	push	#0x01
-      000398 A6 0E            [ 1]  764 	ld	a, #0x0e
-      00039A CDr01r78         [ 4]  765 	call	_ST7735_Write
-                                    766 ;	main.c: 207: ST7735_Write(ST7735_INVON, CMD);
-      00039D 4B 00            [ 1]  767 	push	#0x00
-      00039F A6 21            [ 1]  768 	ld	a, #0x21
-      0003A1 CDr01r78         [ 4]  769 	call	_ST7735_Write
+      000398 4B 01            [ 1]  763 	push	#0x01
+      00039A A6 0E            [ 1]  764 	ld	a, #0x0e
+      00039C CDr01r7A         [ 4]  765 	call	_ST7735_Write
+                                    766 ;	main.c: 207: ST7735_Write(ST7735_INVOFF, CMD);
+      00039F 4B 00            [ 1]  767 	push	#0x00
+      0003A1 A6 20            [ 1]  768 	ld	a, #0x20
+      0003A3 CDr01r7A         [ 4]  769 	call	_ST7735_Write
                                     770 ;	main.c: 208: ST7735_Write(ST7735_MADCTL, CMD);
-      0003A4 4B 00            [ 1]  771 	push	#0x00
-      0003A6 A6 36            [ 1]  772 	ld	a, #0x36
-      0003A8 CDr01r78         [ 4]  773 	call	_ST7735_Write
+      0003A6 4B 00            [ 1]  771 	push	#0x00
+      0003A8 A6 36            [ 1]  772 	ld	a, #0x36
+      0003AA CDr01r7A         [ 4]  773 	call	_ST7735_Write
                                     774 ;	main.c: 209: ST7735_Write(0xC8, DAT);
-      0003AB 4B 01            [ 1]  775 	push	#0x01
-      0003AD A6 C8            [ 1]  776 	ld	a, #0xc8
-      0003AF CDr01r78         [ 4]  777 	call	_ST7735_Write
+      0003AD 4B 01            [ 1]  775 	push	#0x01
+      0003AF A6 C8            [ 1]  776 	ld	a, #0xc8
+      0003B1 CDr01r7A         [ 4]  777 	call	_ST7735_Write
                                     778 ;	main.c: 210: ST7735_Write(ST7735_COLMOD, CMD);
-      0003B2 4B 00            [ 1]  779 	push	#0x00
-      0003B4 A6 3A            [ 1]  780 	ld	a, #0x3a
-      0003B6 CDr01r78         [ 4]  781 	call	_ST7735_Write
+      0003B4 4B 00            [ 1]  779 	push	#0x00
+      0003B6 A6 3A            [ 1]  780 	ld	a, #0x3a
+      0003B8 CDr01r7A         [ 4]  781 	call	_ST7735_Write
                                     782 ;	main.c: 211: ST7735_Write(0x05, DAT);
-      0003B9 4B 01            [ 1]  783 	push	#0x01
-      0003BB A6 05            [ 1]  784 	ld	a, #0x05
-      0003BD CDr01r78         [ 4]  785 	call	_ST7735_Write
+      0003BB 4B 01            [ 1]  783 	push	#0x01
+      0003BD A6 05            [ 1]  784 	ld	a, #0x05
+      0003BF CDr01r7A         [ 4]  785 	call	_ST7735_Write
                                     786 ;	main.c: 215: ST7735_Write(ST7735_CASET, CMD);
-      0003C0 4B 00            [ 1]  787 	push	#0x00
-      0003C2 A6 2A            [ 1]  788 	ld	a, #0x2a
-      0003C4 CDr01r78         [ 4]  789 	call	_ST7735_Write
+      0003C2 4B 00            [ 1]  787 	push	#0x00
+      0003C4 A6 2A            [ 1]  788 	ld	a, #0x2a
+      0003C6 CDr01r7A         [ 4]  789 	call	_ST7735_Write
                                     790 ;	main.c: 216: ST7735_Write(0x00, DAT);
-      0003C7 4B 01            [ 1]  791 	push	#0x01
-      0003C9 4F               [ 1]  792 	clr	a
-      0003CA CDr01r78         [ 4]  793 	call	_ST7735_Write
+      0003C9 4B 01            [ 1]  791 	push	#0x01
+      0003CB 4F               [ 1]  792 	clr	a
+      0003CC CDr01r7A         [ 4]  793 	call	_ST7735_Write
                                     794 ;	main.c: 217: ST7735_Write(0x00, DAT);
-      0003CD 4B 01            [ 1]  795 	push	#0x01
-      0003CF 4F               [ 1]  796 	clr	a
-      0003D0 CDr01r78         [ 4]  797 	call	_ST7735_Write
+      0003CF 4B 01            [ 1]  795 	push	#0x01
+      0003D1 4F               [ 1]  796 	clr	a
+      0003D2 CDr01r7A         [ 4]  797 	call	_ST7735_Write
                                     798 ;	main.c: 218: ST7735_Write(0x00, DAT);
-      0003D3 4B 01            [ 1]  799 	push	#0x01
-      0003D5 4F               [ 1]  800 	clr	a
-      0003D6 CDr01r78         [ 4]  801 	call	_ST7735_Write
+      0003D5 4B 01            [ 1]  799 	push	#0x01
+      0003D7 4F               [ 1]  800 	clr	a
+      0003D8 CDr01r7A         [ 4]  801 	call	_ST7735_Write
                                     802 ;	main.c: 219: ST7735_Write(0x4F, DAT);
-      0003D9 4B 01            [ 1]  803 	push	#0x01
-      0003DB A6 4F            [ 1]  804 	ld	a, #0x4f
-      0003DD CDr01r78         [ 4]  805 	call	_ST7735_Write
+      0003DB 4B 01            [ 1]  803 	push	#0x01
+      0003DD A6 4F            [ 1]  804 	ld	a, #0x4f
+      0003DF CDr01r7A         [ 4]  805 	call	_ST7735_Write
                                     806 ;	main.c: 220: ST7735_Write(ST7735_RASET, CMD);
-      0003E0 4B 00            [ 1]  807 	push	#0x00
-      0003E2 A6 2B            [ 1]  808 	ld	a, #0x2b
-      0003E4 CDr01r78         [ 4]  809 	call	_ST7735_Write
+      0003E2 4B 00            [ 1]  807 	push	#0x00
+      0003E4 A6 2B            [ 1]  808 	ld	a, #0x2b
+      0003E6 CDr01r7A         [ 4]  809 	call	_ST7735_Write
                                     810 ;	main.c: 221: ST7735_Write(0x00, DAT);
-      0003E7 4B 01            [ 1]  811 	push	#0x01
-      0003E9 4F               [ 1]  812 	clr	a
-      0003EA CDr01r78         [ 4]  813 	call	_ST7735_Write
+      0003E9 4B 01            [ 1]  811 	push	#0x01
+      0003EB 4F               [ 1]  812 	clr	a
+      0003EC CDr01r7A         [ 4]  813 	call	_ST7735_Write
                                     814 ;	main.c: 222: ST7735_Write(0x00, DAT);
-      0003ED 4B 01            [ 1]  815 	push	#0x01
-      0003EF 4F               [ 1]  816 	clr	a
-      0003F0 CDr01r78         [ 4]  817 	call	_ST7735_Write
+      0003EF 4B 01            [ 1]  815 	push	#0x01
+      0003F1 4F               [ 1]  816 	clr	a
+      0003F2 CDr01r7A         [ 4]  817 	call	_ST7735_Write
                                     818 ;	main.c: 223: ST7735_Write(0x00, DAT);
-      0003F3 4B 01            [ 1]  819 	push	#0x01
-      0003F5 4F               [ 1]  820 	clr	a
-      0003F6 CDr01r78         [ 4]  821 	call	_ST7735_Write
+      0003F5 4B 01            [ 1]  819 	push	#0x01
+      0003F7 4F               [ 1]  820 	clr	a
+      0003F8 CDr01r7A         [ 4]  821 	call	_ST7735_Write
                                     822 ;	main.c: 224: ST7735_Write(0x9F, DAT);
-      0003F9 4B 01            [ 1]  823 	push	#0x01
-      0003FB A6 9F            [ 1]  824 	ld	a, #0x9f
-      0003FD CDr01r78         [ 4]  825 	call	_ST7735_Write
+      0003FB 4B 01            [ 1]  823 	push	#0x01
+      0003FD A6 9F            [ 1]  824 	ld	a, #0x9f
+      0003FF CDr01r7A         [ 4]  825 	call	_ST7735_Write
                                     826 ;	main.c: 228: ST7735_Write(ST7735_GMCTRP1, CMD);
-      000400 4B 00            [ 1]  827 	push	#0x00
-      000402 A6 E0            [ 1]  828 	ld	a, #0xe0
-      000404 CDr01r78         [ 4]  829 	call	_ST7735_Write
+      000402 4B 00            [ 1]  827 	push	#0x00
+      000404 A6 E0            [ 1]  828 	ld	a, #0xe0
+      000406 CDr01r7A         [ 4]  829 	call	_ST7735_Write
                                     830 ;	main.c: 229: ST7735_Write(0x02, DAT);
-      000407 4B 01            [ 1]  831 	push	#0x01
-      000409 A6 02            [ 1]  832 	ld	a, #0x02
-      00040B CDr01r78         [ 4]  833 	call	_ST7735_Write
+      000409 4B 01            [ 1]  831 	push	#0x01
+      00040B A6 02            [ 1]  832 	ld	a, #0x02
+      00040D CDr01r7A         [ 4]  833 	call	_ST7735_Write
                                     834 ;	main.c: 230: ST7735_Write(0x1C, DAT);
-      00040E 4B 01            [ 1]  835 	push	#0x01
-      000410 A6 1C            [ 1]  836 	ld	a, #0x1c
-      000412 CDr01r78         [ 4]  837 	call	_ST7735_Write
+      000410 4B 01            [ 1]  835 	push	#0x01
+      000412 A6 1C            [ 1]  836 	ld	a, #0x1c
+      000414 CDr01r7A         [ 4]  837 	call	_ST7735_Write
                                     838 ;	main.c: 231: ST7735_Write(0x07, DAT);
-      000415 4B 01            [ 1]  839 	push	#0x01
-      000417 A6 07            [ 1]  840 	ld	a, #0x07
-      000419 CDr01r78         [ 4]  841 	call	_ST7735_Write
+      000417 4B 01            [ 1]  839 	push	#0x01
+      000419 A6 07            [ 1]  840 	ld	a, #0x07
+      00041B CDr01r7A         [ 4]  841 	call	_ST7735_Write
                                     842 ;	main.c: 232: ST7735_Write(0x12, DAT);
-      00041C 4B 01            [ 1]  843 	push	#0x01
-      00041E A6 12            [ 1]  844 	ld	a, #0x12
-      000420 CDr01r78         [ 4]  845 	call	_ST7735_Write
+      00041E 4B 01            [ 1]  843 	push	#0x01
+      000420 A6 12            [ 1]  844 	ld	a, #0x12
+      000422 CDr01r7A         [ 4]  845 	call	_ST7735_Write
                                     846 ;	main.c: 233: ST7735_Write(0x37, DAT);
-      000423 4B 01            [ 1]  847 	push	#0x01
-      000425 A6 37            [ 1]  848 	ld	a, #0x37
-      000427 CDr01r78         [ 4]  849 	call	_ST7735_Write
+      000425 4B 01            [ 1]  847 	push	#0x01
+      000427 A6 37            [ 1]  848 	ld	a, #0x37
+      000429 CDr01r7A         [ 4]  849 	call	_ST7735_Write
                                     850 ;	main.c: 234: ST7735_Write(0x32, DAT);
-      00042A 4B 01            [ 1]  851 	push	#0x01
-      00042C A6 32            [ 1]  852 	ld	a, #0x32
-      00042E CDr01r78         [ 4]  853 	call	_ST7735_Write
+      00042C 4B 01            [ 1]  851 	push	#0x01
+      00042E A6 32            [ 1]  852 	ld	a, #0x32
+      000430 CDr01r7A         [ 4]  853 	call	_ST7735_Write
                                     854 ;	main.c: 235: ST7735_Write(0x29, DAT);
-      000431 4B 01            [ 1]  855 	push	#0x01
-      000433 A6 29            [ 1]  856 	ld	a, #0x29
-      000435 CDr01r78         [ 4]  857 	call	_ST7735_Write
+      000433 4B 01            [ 1]  855 	push	#0x01
+      000435 A6 29            [ 1]  856 	ld	a, #0x29
+      000437 CDr01r7A         [ 4]  857 	call	_ST7735_Write
                                     858 ;	main.c: 236: ST7735_Write(0x2D, DAT);
-      000438 4B 01            [ 1]  859 	push	#0x01
-      00043A A6 2D            [ 1]  860 	ld	a, #0x2d
-      00043C CDr01r78         [ 4]  861 	call	_ST7735_Write
+      00043A 4B 01            [ 1]  859 	push	#0x01
+      00043C A6 2D            [ 1]  860 	ld	a, #0x2d
+      00043E CDr01r7A         [ 4]  861 	call	_ST7735_Write
                                     862 ;	main.c: 237: ST7735_Write(0x29, DAT);
-      00043F 4B 01            [ 1]  863 	push	#0x01
-      000441 A6 29            [ 1]  864 	ld	a, #0x29
-      000443 CDr01r78         [ 4]  865 	call	_ST7735_Write
+      000441 4B 01            [ 1]  863 	push	#0x01
+      000443 A6 29            [ 1]  864 	ld	a, #0x29
+      000445 CDr01r7A         [ 4]  865 	call	_ST7735_Write
                                     866 ;	main.c: 238: ST7735_Write(0x25, DAT);
-      000446 4B 01            [ 1]  867 	push	#0x01
-      000448 A6 25            [ 1]  868 	ld	a, #0x25
-      00044A CDr01r78         [ 4]  869 	call	_ST7735_Write
+      000448 4B 01            [ 1]  867 	push	#0x01
+      00044A A6 25            [ 1]  868 	ld	a, #0x25
+      00044C CDr01r7A         [ 4]  869 	call	_ST7735_Write
                                     870 ;	main.c: 239: ST7735_Write(0x2B, DAT);
-      00044D 4B 01            [ 1]  871 	push	#0x01
-      00044F A6 2B            [ 1]  872 	ld	a, #0x2b
-      000451 CDr01r78         [ 4]  873 	call	_ST7735_Write
+      00044F 4B 01            [ 1]  871 	push	#0x01
+      000451 A6 2B            [ 1]  872 	ld	a, #0x2b
+      000453 CDr01r7A         [ 4]  873 	call	_ST7735_Write
                                     874 ;	main.c: 240: ST7735_Write(0x39, DAT);
-      000454 4B 01            [ 1]  875 	push	#0x01
-      000456 A6 39            [ 1]  876 	ld	a, #0x39
-      000458 CDr01r78         [ 4]  877 	call	_ST7735_Write
+      000456 4B 01            [ 1]  875 	push	#0x01
+      000458 A6 39            [ 1]  876 	ld	a, #0x39
+      00045A CDr01r7A         [ 4]  877 	call	_ST7735_Write
                                     878 ;	main.c: 241: ST7735_Write(0x00, DAT);
-      00045B 4B 01            [ 1]  879 	push	#0x01
-      00045D 4F               [ 1]  880 	clr	a
-      00045E CDr01r78         [ 4]  881 	call	_ST7735_Write
+      00045D 4B 01            [ 1]  879 	push	#0x01
+      00045F 4F               [ 1]  880 	clr	a
+      000460 CDr01r7A         [ 4]  881 	call	_ST7735_Write
                                     882 ;	main.c: 242: ST7735_Write(0x01, DAT);
-      000461 4B 01            [ 1]  883 	push	#0x01
-      000463 A6 01            [ 1]  884 	ld	a, #0x01
-      000465 CDr01r78         [ 4]  885 	call	_ST7735_Write
+      000463 4B 01            [ 1]  883 	push	#0x01
+      000465 A6 01            [ 1]  884 	ld	a, #0x01
+      000467 CDr01r7A         [ 4]  885 	call	_ST7735_Write
                                     886 ;	main.c: 243: ST7735_Write(0x03, DAT);
-      000468 4B 01            [ 1]  887 	push	#0x01
-      00046A A6 03            [ 1]  888 	ld	a, #0x03
-      00046C CDr01r78         [ 4]  889 	call	_ST7735_Write
+      00046A 4B 01            [ 1]  887 	push	#0x01
+      00046C A6 03            [ 1]  888 	ld	a, #0x03
+      00046E CDr01r7A         [ 4]  889 	call	_ST7735_Write
                                     890 ;	main.c: 244: ST7735_Write(0x10, DAT);
-      00046F 4B 01            [ 1]  891 	push	#0x01
-      000471 A6 10            [ 1]  892 	ld	a, #0x10
-      000473 CDr01r78         [ 4]  893 	call	_ST7735_Write
+      000471 4B 01            [ 1]  891 	push	#0x01
+      000473 A6 10            [ 1]  892 	ld	a, #0x10
+      000475 CDr01r7A         [ 4]  893 	call	_ST7735_Write
                                     894 ;	main.c: 245: ST7735_Write(ST7735_GMCTRN1, CMD);
-      000476 4B 00            [ 1]  895 	push	#0x00
-      000478 A6 E1            [ 1]  896 	ld	a, #0xe1
-      00047A CDr01r78         [ 4]  897 	call	_ST7735_Write
+      000478 4B 00            [ 1]  895 	push	#0x00
+      00047A A6 E1            [ 1]  896 	ld	a, #0xe1
+      00047C CDr01r7A         [ 4]  897 	call	_ST7735_Write
                                     898 ;	main.c: 246: ST7735_Write(0x03, DAT);
-      00047D 4B 01            [ 1]  899 	push	#0x01
-      00047F A6 03            [ 1]  900 	ld	a, #0x03
-      000481 CDr01r78         [ 4]  901 	call	_ST7735_Write
+      00047F 4B 01            [ 1]  899 	push	#0x01
+      000481 A6 03            [ 1]  900 	ld	a, #0x03
+      000483 CDr01r7A         [ 4]  901 	call	_ST7735_Write
                                     902 ;	main.c: 247: ST7735_Write(0x1D, DAT);
-      000484 4B 01            [ 1]  903 	push	#0x01
-      000486 A6 1D            [ 1]  904 	ld	a, #0x1d
-      000488 CDr01r78         [ 4]  905 	call	_ST7735_Write
+      000486 4B 01            [ 1]  903 	push	#0x01
+      000488 A6 1D            [ 1]  904 	ld	a, #0x1d
+      00048A CDr01r7A         [ 4]  905 	call	_ST7735_Write
                                     906 ;	main.c: 248: ST7735_Write(0x07, DAT);
-      00048B 4B 01            [ 1]  907 	push	#0x01
-      00048D A6 07            [ 1]  908 	ld	a, #0x07
-      00048F CDr01r78         [ 4]  909 	call	_ST7735_Write
+      00048D 4B 01            [ 1]  907 	push	#0x01
+      00048F A6 07            [ 1]  908 	ld	a, #0x07
+      000491 CDr01r7A         [ 4]  909 	call	_ST7735_Write
                                     910 ;	main.c: 249: ST7735_Write(0x06, DAT);
-      000492 4B 01            [ 1]  911 	push	#0x01
-      000494 A6 06            [ 1]  912 	ld	a, #0x06
-      000496 CDr01r78         [ 4]  913 	call	_ST7735_Write
+      000494 4B 01            [ 1]  911 	push	#0x01
+      000496 A6 06            [ 1]  912 	ld	a, #0x06
+      000498 CDr01r7A         [ 4]  913 	call	_ST7735_Write
                                     914 ;	main.c: 250: ST7735_Write(0x2E, DAT);
-      000499 4B 01            [ 1]  915 	push	#0x01
-      00049B A6 2E            [ 1]  916 	ld	a, #0x2e
-      00049D CDr01r78         [ 4]  917 	call	_ST7735_Write
+      00049B 4B 01            [ 1]  915 	push	#0x01
+      00049D A6 2E            [ 1]  916 	ld	a, #0x2e
+      00049F CDr01r7A         [ 4]  917 	call	_ST7735_Write
                                     918 ;	main.c: 251: ST7735_Write(0x2C, DAT);
-      0004A0 4B 01            [ 1]  919 	push	#0x01
-      0004A2 A6 2C            [ 1]  920 	ld	a, #0x2c
-      0004A4 CDr01r78         [ 4]  921 	call	_ST7735_Write
+      0004A2 4B 01            [ 1]  919 	push	#0x01
+      0004A4 A6 2C            [ 1]  920 	ld	a, #0x2c
+      0004A6 CDr01r7A         [ 4]  921 	call	_ST7735_Write
                                     922 ;	main.c: 252: ST7735_Write(0x29, DAT);
-      0004A7 4B 01            [ 1]  923 	push	#0x01
-      0004A9 A6 29            [ 1]  924 	ld	a, #0x29
-      0004AB CDr01r78         [ 4]  925 	call	_ST7735_Write
+      0004A9 4B 01            [ 1]  923 	push	#0x01
+      0004AB A6 29            [ 1]  924 	ld	a, #0x29
+      0004AD CDr01r7A         [ 4]  925 	call	_ST7735_Write
                                     926 ;	main.c: 253: ST7735_Write(0x2D, DAT);
-      0004AE 4B 01            [ 1]  927 	push	#0x01
-      0004B0 A6 2D            [ 1]  928 	ld	a, #0x2d
-      0004B2 CDr01r78         [ 4]  929 	call	_ST7735_Write
+      0004B0 4B 01            [ 1]  927 	push	#0x01
+      0004B2 A6 2D            [ 1]  928 	ld	a, #0x2d
+      0004B4 CDr01r7A         [ 4]  929 	call	_ST7735_Write
                                     930 ;	main.c: 254: ST7735_Write(0x2E, DAT);
-      0004B5 4B 01            [ 1]  931 	push	#0x01
-      0004B7 A6 2E            [ 1]  932 	ld	a, #0x2e
-      0004B9 CDr01r78         [ 4]  933 	call	_ST7735_Write
+      0004B7 4B 01            [ 1]  931 	push	#0x01
+      0004B9 A6 2E            [ 1]  932 	ld	a, #0x2e
+      0004BB CDr01r7A         [ 4]  933 	call	_ST7735_Write
                                     934 ;	main.c: 255: ST7735_Write(0x2E, DAT);
-      0004BC 4B 01            [ 1]  935 	push	#0x01
-      0004BE A6 2E            [ 1]  936 	ld	a, #0x2e
-      0004C0 CDr01r78         [ 4]  937 	call	_ST7735_Write
+      0004BE 4B 01            [ 1]  935 	push	#0x01
+      0004C0 A6 2E            [ 1]  936 	ld	a, #0x2e
+      0004C2 CDr01r7A         [ 4]  937 	call	_ST7735_Write
                                     938 ;	main.c: 256: ST7735_Write(0x37, DAT);
-      0004C3 4B 01            [ 1]  939 	push	#0x01
-      0004C5 A6 37            [ 1]  940 	ld	a, #0x37
-      0004C7 CDr01r78         [ 4]  941 	call	_ST7735_Write
+      0004C5 4B 01            [ 1]  939 	push	#0x01
+      0004C7 A6 37            [ 1]  940 	ld	a, #0x37
+      0004C9 CDr01r7A         [ 4]  941 	call	_ST7735_Write
                                     942 ;	main.c: 257: ST7735_Write(0x3F, DAT);
-      0004CA 4B 01            [ 1]  943 	push	#0x01
-      0004CC A6 3F            [ 1]  944 	ld	a, #0x3f
-      0004CE CDr01r78         [ 4]  945 	call	_ST7735_Write
+      0004CC 4B 01            [ 1]  943 	push	#0x01
+      0004CE A6 3F            [ 1]  944 	ld	a, #0x3f
+      0004D0 CDr01r7A         [ 4]  945 	call	_ST7735_Write
                                     946 ;	main.c: 258: ST7735_Write(0x00, DAT);
-      0004D1 4B 01            [ 1]  947 	push	#0x01
-      0004D3 4F               [ 1]  948 	clr	a
-      0004D4 CDr01r78         [ 4]  949 	call	_ST7735_Write
+      0004D3 4B 01            [ 1]  947 	push	#0x01
+      0004D5 4F               [ 1]  948 	clr	a
+      0004D6 CDr01r7A         [ 4]  949 	call	_ST7735_Write
                                     950 ;	main.c: 259: ST7735_Write(0x00, DAT);
-      0004D7 4B 01            [ 1]  951 	push	#0x01
-      0004D9 4F               [ 1]  952 	clr	a
-      0004DA CDr01r78         [ 4]  953 	call	_ST7735_Write
+      0004D9 4B 01            [ 1]  951 	push	#0x01
+      0004DB 4F               [ 1]  952 	clr	a
+      0004DC CDr01r7A         [ 4]  953 	call	_ST7735_Write
                                     954 ;	main.c: 260: ST7735_Write(0x02, DAT);
-      0004DD 4B 01            [ 1]  955 	push	#0x01
-      0004DF A6 02            [ 1]  956 	ld	a, #0x02
-      0004E1 CDr01r78         [ 4]  957 	call	_ST7735_Write
+      0004DF 4B 01            [ 1]  955 	push	#0x01
+      0004E1 A6 02            [ 1]  956 	ld	a, #0x02
+      0004E3 CDr01r7A         [ 4]  957 	call	_ST7735_Write
                                     958 ;	main.c: 261: ST7735_Write(0x10, DAT);
-      0004E4 4B 01            [ 1]  959 	push	#0x01
-      0004E6 A6 10            [ 1]  960 	ld	a, #0x10
-      0004E8 CDr01r78         [ 4]  961 	call	_ST7735_Write
+      0004E6 4B 01            [ 1]  959 	push	#0x01
+      0004E8 A6 10            [ 1]  960 	ld	a, #0x10
+      0004EA CDr01r7A         [ 4]  961 	call	_ST7735_Write
                                     962 ;	main.c: 262: ST7735_Write(ST7735_NORON, CMD);
-      0004EB 4B 00            [ 1]  963 	push	#0x00
-      0004ED A6 13            [ 1]  964 	ld	a, #0x13
-      0004EF CDr01r78         [ 4]  965 	call	_ST7735_Write
+      0004ED 4B 00            [ 1]  963 	push	#0x00
+      0004EF A6 13            [ 1]  964 	ld	a, #0x13
+      0004F1 CDr01r7A         [ 4]  965 	call	_ST7735_Write
                                     966 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      0004F2 90 5F            [ 1]  967 	clrw	y
-      0004F4 5F               [ 1]  968 	clrw	x
-      0004F5                        969 00128$:
-      0004F5 90 A3 4E 20      [ 2]  970 	cpw	y, #0x4e20
-      0004F9 9F               [ 1]  971 	ld	a, xl
-      0004FA A2 00            [ 1]  972 	sbc	a, #0x00
-      0004FC 9E               [ 1]  973 	ld	a, xh
-      0004FD A2 00            [ 1]  974 	sbc	a, #0x00
-      0004FF 24 08            [ 1]  975 	jrnc	00110$
+      0004F4 90 5F            [ 1]  967 	clrw	y
+      0004F6 5F               [ 1]  968 	clrw	x
+      0004F7                        969 00128$:
+      0004F7 90 A3 4E 20      [ 2]  970 	cpw	y, #0x4e20
+      0004FB 9F               [ 1]  971 	ld	a, xl
+      0004FC A2 00            [ 1]  972 	sbc	a, #0x00
+      0004FE 9E               [ 1]  973 	ld	a, xh
+      0004FF A2 00            [ 1]  974 	sbc	a, #0x00
+      000501 24 08            [ 1]  975 	jrnc	00110$
                                     976 ;	main.c: 28: __asm__("nop");
-      000501 9D               [ 1]  977 	nop
+      000503 9D               [ 1]  977 	nop
                                     978 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      000502 90 5C            [ 1]  979 	incw	y
-      000504 26 EF            [ 1]  980 	jrne	00128$
-      000506 5C               [ 1]  981 	incw	x
-      000507 20 EC            [ 2]  982 	jra	00128$
+      000504 90 5C            [ 1]  979 	incw	y
+      000506 26 EF            [ 1]  980 	jrne	00128$
+      000508 5C               [ 1]  981 	incw	x
+      000509 20 EC            [ 2]  982 	jra	00128$
                                     983 ;	main.c: 263: delay_ms(10);
-      000509                        984 00110$:
+      00050B                        984 00110$:
                                     985 ;	main.c: 264: ST7735_Write(ST7735_DISPON, CMD);
-      000509 4B 00            [ 1]  986 	push	#0x00
-      00050B A6 29            [ 1]  987 	ld	a, #0x29
-      00050D CDr01r78         [ 4]  988 	call	_ST7735_Write
+      00050B 4B 00            [ 1]  986 	push	#0x00
+      00050D A6 29            [ 1]  987 	ld	a, #0x29
+      00050F CDr01r7A         [ 4]  988 	call	_ST7735_Write
                                     989 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      000510 90 5F            [ 1]  990 	clrw	y
-      000512 5F               [ 1]  991 	clrw	x
-      000513                        992 00131$:
-      000513 90 A3 0D 40      [ 2]  993 	cpw	y, #0x0d40
-      000517 9F               [ 1]  994 	ld	a, xl
-      000518 A2 03            [ 1]  995 	sbc	a, #0x03
-      00051A 9E               [ 1]  996 	ld	a, xh
-      00051B A2 00            [ 1]  997 	sbc	a, #0x00
-      00051D 24 08            [ 1]  998 	jrnc	00112$
+      000512 90 5F            [ 1]  990 	clrw	y
+      000514 5F               [ 1]  991 	clrw	x
+      000515                        992 00131$:
+      000515 90 A3 0D 40      [ 2]  993 	cpw	y, #0x0d40
+      000519 9F               [ 1]  994 	ld	a, xl
+      00051A A2 03            [ 1]  995 	sbc	a, #0x03
+      00051C 9E               [ 1]  996 	ld	a, xh
+      00051D A2 00            [ 1]  997 	sbc	a, #0x00
+      00051F 24 08            [ 1]  998 	jrnc	00112$
                                     999 ;	main.c: 28: __asm__("nop");
-      00051F 9D               [ 1] 1000 	nop
+      000521 9D               [ 1] 1000 	nop
                                    1001 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      000520 90 5C            [ 1] 1002 	incw	y
-      000522 26 EF            [ 1] 1003 	jrne	00131$
-      000524 5C               [ 1] 1004 	incw	x
-      000525 20 EC            [ 2] 1005 	jra	00131$
+      000522 90 5C            [ 1] 1002 	incw	y
+      000524 26 EF            [ 1] 1003 	jrne	00131$
+      000526 5C               [ 1] 1004 	incw	x
+      000527 20 EC            [ 2] 1005 	jra	00131$
                                    1006 ;	main.c: 265: delay_ms(100);
-      000527                       1007 00112$:
+      000529                       1007 00112$:
                                    1008 ;	main.c: 267: ST7735_Write(ST7735_MADCTL, CMD);
-      000527 4B 00            [ 1] 1009 	push	#0x00
-      000529 A6 36            [ 1] 1010 	ld	a, #0x36
-      00052B CDr01r78         [ 4] 1011 	call	_ST7735_Write
+      000529 4B 00            [ 1] 1009 	push	#0x00
+      00052B A6 36            [ 1] 1010 	ld	a, #0x36
+      00052D CDr01r7A         [ 4] 1011 	call	_ST7735_Write
                                    1012 ;	main.c: 268: ST7735_Write(MADCTL_MX | MADCTL_MV | MADCTL_RGB, DAT);
-      00052E 4B 01            [ 1] 1013 	push	#0x01
-      000530 A6 68            [ 1] 1014 	ld	a, #0x68
-      000532 CDr01r78         [ 4] 1015 	call	_ST7735_Write
+      000530 4B 01            [ 1] 1013 	push	#0x01
+      000532 A6 68            [ 1] 1014 	ld	a, #0x68
+      000534 CDr01r7A         [ 4] 1015 	call	_ST7735_Write
                                    1016 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      000535 90 5F            [ 1] 1017 	clrw	y
-      000537 5F               [ 1] 1018 	clrw	x
-      000538                       1019 00134$:
-      000538 90 A3 4E 20      [ 2] 1020 	cpw	y, #0x4e20
-      00053C 9F               [ 1] 1021 	ld	a, xl
-      00053D A2 00            [ 1] 1022 	sbc	a, #0x00
-      00053F 9E               [ 1] 1023 	ld	a, xh
-      000540 A2 00            [ 1] 1024 	sbc	a, #0x00
-      000542 25 01            [ 1] 1025 	jrc	00227$
-      000544 81               [ 4] 1026 	ret
-      000545                       1027 00227$:
+      000537 90 5F            [ 1] 1017 	clrw	y
+      000539 5F               [ 1] 1018 	clrw	x
+      00053A                       1019 00134$:
+      00053A 90 A3 4E 20      [ 2] 1020 	cpw	y, #0x4e20
+      00053E 9F               [ 1] 1021 	ld	a, xl
+      00053F A2 00            [ 1] 1022 	sbc	a, #0x00
+      000541 9E               [ 1] 1023 	ld	a, xh
+      000542 A2 00            [ 1] 1024 	sbc	a, #0x00
+      000544 25 01            [ 1] 1025 	jrc	00227$
+      000546 81               [ 4] 1026 	ret
+      000547                       1027 00227$:
                                    1028 ;	main.c: 28: __asm__("nop");
-      000545 9D               [ 1] 1029 	nop
+      000547 9D               [ 1] 1029 	nop
                                    1030 ;	main.c: 27: for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
-      000546 90 5C            [ 1] 1031 	incw	y
-      000548 26 EE            [ 1] 1032 	jrne	00134$
-      00054A 5C               [ 1] 1033 	incw	x
-      00054B 20 EB            [ 2] 1034 	jra	00134$
+      000548 90 5C            [ 1] 1031 	incw	y
+      00054A 26 EE            [ 1] 1032 	jrne	00134$
+      00054C 5C               [ 1] 1033 	incw	x
+      00054D 20 EB            [ 2] 1034 	jra	00134$
                                    1035 ;	main.c: 269: delay_ms(10);
                                    1036 ;	main.c: 270: }
-      00054D 81               [ 4] 1037 	ret
+      00054F 81               [ 4] 1037 	ret
                                    1038 ;	main.c: 273: void ST7735_Clear(uint16_t color) {
                                    1039 ;	-----------------------------------------
                                    1040 ;	 function ST7735_Clear
                                    1041 ;	-----------------------------------------
-      00054E                       1042 _ST7735_Clear:
-      00054E 52 04            [ 2] 1043 	sub	sp, #4
-      000550 1F 01            [ 2] 1044 	ldw	(0x01, sp), x
+      000550                       1042 _ST7735_Clear:
+      000550 52 04            [ 2] 1043 	sub	sp, #4
+      000552 1F 01            [ 2] 1044 	ldw	(0x01, sp), x
                                    1045 ;	main.c: 274: ST7735_SetAddrWindow(0,0,ST7735_TFTLENGTH+3,ST7735_TFTWIDTH+3);
-      000552 4B 53            [ 1] 1046 	push	#0x53
-      000554 4B A3            [ 1] 1047 	push	#0xa3
-      000556 4B 00            [ 1] 1048 	push	#0x00
-      000558 4F               [ 1] 1049 	clr	a
-      000559 CDr01rB9         [ 4] 1050 	call	_ST7735_SetAddrWindow
+      000554 4B 53            [ 1] 1046 	push	#0x53
+      000556 4B A3            [ 1] 1047 	push	#0xa3
+      000558 4B 00            [ 1] 1048 	push	#0x00
+      00055A 4F               [ 1] 1049 	clr	a
+      00055B CDr01rBB         [ 4] 1050 	call	_ST7735_SetAddrWindow
                                    1051 ;	main.c: 275: for (int i=0; i< ST7735_TFTWIDTH+3; ++i)
-      00055C 5F               [ 1] 1052 	clrw	x
-      00055D 1F 03            [ 2] 1053 	ldw	(0x03, sp), x
-      00055F                       1054 00107$:
-      00055F 1E 03            [ 2] 1055 	ldw	x, (0x03, sp)
-      000561 A3 00 53         [ 2] 1056 	cpw	x, #0x0053
-      000564 2E 17            [ 1] 1057 	jrsge	00109$
+      00055E 5F               [ 1] 1052 	clrw	x
+      00055F 1F 03            [ 2] 1053 	ldw	(0x03, sp), x
+      000561                       1054 00107$:
+      000561 1E 03            [ 2] 1055 	ldw	x, (0x03, sp)
+      000563 A3 00 53         [ 2] 1056 	cpw	x, #0x0053
+      000566 2E 17            [ 1] 1057 	jrsge	00109$
                                    1058 ;	main.c: 276: for(int j=0; j< ST7735_TFTLENGTH+3; ++j)
-      000566 5F               [ 1] 1059 	clrw	x
-      000567                       1060 00104$:
-      000567 A3 00 A3         [ 2] 1061 	cpw	x, #0x00a3
-      00056A 2E 0A            [ 1] 1062 	jrsge	00108$
+      000568 5F               [ 1] 1059 	clrw	x
+      000569                       1060 00104$:
+      000569 A3 00 A3         [ 2] 1061 	cpw	x, #0x00a3
+      00056C 2E 0A            [ 1] 1062 	jrsge	00108$
                                    1063 ;	main.c: 277: ST7735_Write16(color);
-      00056C 89               [ 2] 1064 	pushw	x
-      00056D 1E 03            [ 2] 1065 	ldw	x, (0x03, sp)
-      00056F CDr01r9B         [ 4] 1066 	call	_ST7735_Write16
-      000572 85               [ 2] 1067 	popw	x
+      00056E 89               [ 2] 1064 	pushw	x
+      00056F 1E 03            [ 2] 1065 	ldw	x, (0x03, sp)
+      000571 CDr01r9D         [ 4] 1066 	call	_ST7735_Write16
+      000574 85               [ 2] 1067 	popw	x
                                    1068 ;	main.c: 276: for(int j=0; j< ST7735_TFTLENGTH+3; ++j)
-      000573 5C               [ 1] 1069 	incw	x
-      000574 20 F1            [ 2] 1070 	jra	00104$
-      000576                       1071 00108$:
+      000575 5C               [ 1] 1069 	incw	x
+      000576 20 F1            [ 2] 1070 	jra	00104$
+      000578                       1071 00108$:
                                    1072 ;	main.c: 275: for (int i=0; i< ST7735_TFTWIDTH+3; ++i)
-      000576 1E 03            [ 2] 1073 	ldw	x, (0x03, sp)
-      000578 5C               [ 1] 1074 	incw	x
-      000579 1F 03            [ 2] 1075 	ldw	(0x03, sp), x
-      00057B 20 E2            [ 2] 1076 	jra	00107$
-      00057D                       1077 00109$:
+      000578 1E 03            [ 2] 1073 	ldw	x, (0x03, sp)
+      00057A 5C               [ 1] 1074 	incw	x
+      00057B 1F 03            [ 2] 1075 	ldw	(0x03, sp), x
+      00057D 20 E2            [ 2] 1076 	jra	00107$
+      00057F                       1077 00109$:
                                    1078 ;	main.c: 278: }
-      00057D 5B 04            [ 2] 1079 	addw	sp, #4
-      00057F 81               [ 4] 1080 	ret
+      00057F 5B 04            [ 2] 1079 	addw	sp, #4
+      000581 81               [ 4] 1080 	ret
                                    1081 	.area CODE
                                    1082 	.area CONST
       000000                       1083 _pallet:

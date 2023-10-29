@@ -49,7 +49,7 @@ void drawFace(const uint8_t *face) { //face is a pointer to a 26x30 array of ind
     for (int y=0; y<80; ++y) {
 
         for (int i=0; i<26; ++i) {
-            int idx = face[(1+(y/3))*26+i];
+            int idx = face[(3+(y/3))*26+i];
             uint16_t c = pallet[idx];
             ST7735_Write16(c);
             ST7735_Write16(c);
@@ -75,9 +75,9 @@ void main(void)
    while(1) {
        
        drawFace(doom2_raw);
-       delay_ms(4000);
+       delay_ms(2000); //000 + (rand() % 2000));
        drawFace(frames[rand()%7]);
-       delay_ms(1000);
+       delay_ms(750);
    }
 
 }
@@ -204,7 +204,7 @@ void ST7735_Init(void) {
     ST7735_Write(0xEE, DAT);
     ST7735_Write(ST7735_VMCTR1, CMD);
     ST7735_Write(0x0E, DAT);
-    ST7735_Write(ST7735_INVON, CMD);
+    ST7735_Write(ST7735_INVOFF, CMD);
     ST7735_Write(ST7735_MADCTL, CMD);
     ST7735_Write(0xC8, DAT);
     ST7735_Write(ST7735_COLMOD, CMD);

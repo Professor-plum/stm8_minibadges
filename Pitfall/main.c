@@ -29,7 +29,7 @@ const uint8_t pool[16] = {0,0,0,16,64,96,112,128,128,112,96,64,16,0,0,0};
 
 static inline void delay_ms(uint16_t ms) {
     uint32_t i;
-    for (i = 0; i < ((F_CPU / 18000UL) * ms); i++)
+    for (i = 0; i < ((F_CPU / 1000UL) * ms); i++)
         __asm__("nop");
 }
 
@@ -191,7 +191,7 @@ void main(void)
        13, 13, 13, 12, 12, 11, 9, 8, 7, 5, 3, 2, 0, 1, 3, 5, 6, 8, 9, 10, 11, 12, 13, 13
     };
     
-   delay_ms(3000);
+   delay_ms(500);
 
    init_clock();
    ST7735_Init();
@@ -241,7 +241,7 @@ void main(void)
        ly = y;
 
        
-       delay_ms(200);
+       delay_ms(20);
 
    }
 
@@ -402,7 +402,7 @@ void ST7735_Init() {
     ST7735_Write(0xEE, DAT);
     ST7735_Write(ST7735_VMCTR1, CMD);
     ST7735_Write(0x0E, DAT);
-    ST7735_Write(ST7735_INVON, CMD);
+    ST7735_Write(ST7735_INVOFF, CMD);
     ST7735_Write(ST7735_MADCTL, CMD);
     ST7735_Write(0xC8, DAT);
     ST7735_Write(ST7735_COLMOD, CMD);
